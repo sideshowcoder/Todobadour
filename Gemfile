@@ -19,4 +19,8 @@ group :test, :development do
   gem "webrat", "~> 0.7.3"
 end
 
+# Database for testing
+group :test do
+  gem "sqlite3"
+end
 
