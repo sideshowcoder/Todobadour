@@ -13,5 +13,17 @@ describe PagesController do
       response.should have_selector("title", :content => "Todobadour : About")
     end
   end
+  
+  describe "GET 'home'" do
+    it "returns http success" do
+      get 'home'
+      response.should be_success
+    end
+    it "should have the title about" do
+      get 'home'
+      response.should have_selector("title", :content => "Todobadour")
+    end
+  end
+  
 
 end

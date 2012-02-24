@@ -5,5 +5,6 @@
 /db/*.sqlite3
 
 # Ignore all logfiles and tempfiles.
+webrat.log
 /log/*.log
 /tmp
