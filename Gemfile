@@ -8,6 +8,7 @@ gem 'jquery-rails'
 # Gems used only for assets production assets are precompieled and therefor this is not needed
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
+  gem 'compass-rails'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'therubyracer'
   gem 'uglifier', '>= 1.0.3'
