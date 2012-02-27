@@ -25,3 +25,6 @@ group :test do
   gem "sqlite3"
 end
 
+# Development Gems making life somewhat easier
+group :development do
+end
