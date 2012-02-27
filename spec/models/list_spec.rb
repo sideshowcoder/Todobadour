@@ -9,11 +9,28 @@ describe List do
   end
   
   it "should create a list with the given attributes" do
-    List.create!(@attr)
+    List.create! @attr
   end
   
-  it "should require a title"
+  it "should require a title" do
+    no_title_list = List.new @attr.merge :title => ""
+    no_title_list.should_not be_valid
+  end
   
-  it "should have a slug present after creation"
+  it "title should not be to long" do
+    too_long_title_list = List.new @attr.merge :title => "a" * 150
+    too_long_title_list.should_not be_valid
+  end
+  
+  it "should require a slug" do
+    no_slug_list = List.new @attr.merge :slug => ""
+    no_slug_list.should_not be_valid    
+  end
+  
+  it "should have a unique slug" do
+    List.create!(@attr)
+    duplicate_slug_list = List.new @attr
+    duplicate_slug_list.should_not be_valid
+  end
 
 end
