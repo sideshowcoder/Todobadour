@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   end
   
   def home
+    @list = List.new
   end
   
 end
