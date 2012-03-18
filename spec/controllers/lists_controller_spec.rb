@@ -7,8 +7,7 @@ describe ListsController do
     
     before(:each) do
       @attr =  { :title => "Shopping for BBQ", 
-                :description => "Get everything for out great BBQ tonight", 
-                :slug => "bbq" }
+                :description => "Get everything for out great BBQ tonight" }
     end
     
     it "should create a list" do
@@ -23,5 +22,16 @@ describe ListsController do
     end
     
   end
+  
+  describe "GET 'show'" do
 
+    before(:each) do
+      @list = List.create! :title => "Shopping for BBQ", 
+    end
+    
+    it "should render a list" do
+      
+    end
+
+  end
 end

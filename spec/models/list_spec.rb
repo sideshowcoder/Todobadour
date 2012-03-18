@@ -3,9 +3,10 @@ require 'spec_helper'
 describe List do
   
   before(:each) do
+    slug = "bbq-#{rand 36**8}"
     @attr = { :title => "Shopping for BBQ", 
               :description => "Get everything for out great BBQ tonight", 
-              :slug => "bbq" }
+              :slug => slug }
   end
   
   it "should create a list with the given attributes" do
