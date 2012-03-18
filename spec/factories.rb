@@ -1,6 +1,7 @@
-# List Factory
-Factory.define :list do |list|
-  list.title "Shopping for BBQ"
-  list.description "Get everything for out great BBQ tonight"
-  list.slug "bbq"
+FactoryGirl.define do
+  factory :list do
+    title "Shopping for BBQ"
+    description "Get everything for out great BBQ tonight"
+    slug "bbq"
+  end
 end
