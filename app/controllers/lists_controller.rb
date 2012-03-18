@@ -6,7 +6,7 @@ class ListsController < ApplicationController
   
   def create
     @list = List.new params[:list]
-    if @list.save
+    if @list.save! params[:list]
       redirect_to @list
     else
       # If creation fails redirect home... and display error
