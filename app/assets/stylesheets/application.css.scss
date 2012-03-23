@@ -1,17 +1,15 @@
-/*
-* application.css.scss
-*
-* Important! Do *not* use Sprockets "require" syntax.
-* Use @import to include other stylesheets and Compass mixins.
-*/
+// Configure Bluepring
+@import "base/base";
 
-// Include some nice mixins
+// Load Blueprint
+@import "blueprint";
+
+// Load Compass
+@import "compass";
 @import "compass/css3";
-@import "sassybuttons";
 
-// include list style
+// Load Mixins
+@import "base/sassybuttons";
+
+// Load styles
 @import "list";
-
-
-
-
