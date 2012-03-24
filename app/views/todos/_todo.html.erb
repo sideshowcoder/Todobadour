@@ -4,4 +4,7 @@
   <li>  
 <% end %>
     <span class="title"><%= todo.title %></span>
+    <%= link_to :delete, [@list, todo], :method => :delete,
+                                        :confirm => "Are you sure?",
+                                        :title => todo.title %>
   </li>

@@ -1,13 +1,21 @@
+<div class="list-header span-15">
 <h1><%= @list.title %></h1>
-
 <% unless @list.description.nil? || @list.description.empty? %>
   <h3><%= @list.description %></h3>
 <% end %>  
+</div>
+
+<div class="list-actions span-15">
+<%= link_to :delete, @list, :method => :delete,
+                            :confirm => "Are you sure?",
+                            :title => @list.title %>
+</div>
+
 
 <%= render "todos/todo_form" %>
 
 <% unless @list.todos.empty? %>
-<div class="span-20">  
+<div class="span-15">  
   <ul class="todos">
     <%= render @list.todos %>
   </ul>
