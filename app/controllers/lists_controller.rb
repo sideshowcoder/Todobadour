@@ -16,12 +16,14 @@ class ListsController < ApplicationController
   end
   
   def destroy
-
+    List.find(params[:id]).destroy
+    redirect_to root_path
   end
   
   def update
-
+    @list = List.find params[:id]
+    @list.update_attributes params[:list]
+    redirect_to @list
   end
-  
   
 end

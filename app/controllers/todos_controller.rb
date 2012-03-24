@@ -14,11 +14,14 @@ class TodosController < ApplicationController
   end
   
   def destroy
-
+    Todo.find(params[:id]).destroy
+    redirect_to current_list
   end
   
   def update
-    
+    @todo = Todo.find params[:id]
+    @todo.update_attributes params[:todo]
+    redirect_to current_list
   end
   
   private

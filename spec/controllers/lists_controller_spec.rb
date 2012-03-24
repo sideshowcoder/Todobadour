@@ -23,6 +23,46 @@ describe ListsController do
     
   end
   
+  describe "PUT 'update'" do
+    
+    before(:each) do
+      @list = Factory :list
+      @attr = { :title => "Changed #{@list.title}",
+                :description => "Changed #{@list.description}" }
+    end
+    
+    it "should update title list" do
+      put :update, :id => @list, :list => @attr
+      List.find(@list).title.should == @attr[:title]
+    end
+        
+    it "should redirect to the list page" do
+      put :update, :id => @list, :list => @attr
+      response.should redirect_to @list
+    end
+    
+  end
+
+  describe "Delete 'destroy'" do
+    
+    before(:each) do
+      @list = Factory :list
+    end
+    
+    it "should delete a list" do
+      lambda do
+        delete :destroy, :id => @list
+       end.should change(List, :count).by(-1)
+    end
+        
+    it "should redirect to the list page" do
+      delete :destroy, :id => @list
+      response.should redirect_to root_path
+    end
+    
+  end
+  
+  
   describe "GET 'show'" do
 
     before(:each) do
