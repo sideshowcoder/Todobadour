@@ -24,7 +24,7 @@ class ListsController < ApplicationController
   def update
     @list = List.find params[:id]
     @list.update_attributes params[:list]
-    respond_with @list, :location => lists_url
+    respond_with @list, :location => list_url
   end
   
 end
