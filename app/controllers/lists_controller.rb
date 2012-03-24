@@ -2,6 +2,7 @@ class ListsController < ApplicationController
   
   def show
     @list = List.find params[:id]
+    @todo = Todo.new
   end
   
   def create
@@ -15,6 +16,11 @@ class ListsController < ApplicationController
   end
   
   def destroy
+
+  end
+  
+  def update
+
   end
   
   

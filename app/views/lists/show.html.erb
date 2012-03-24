@@ -1,5 +1,15 @@
-<ul>
-  <li><%= @list.slug %></li>
-  <li><%= @list.title %></li>
-  <li><%= @list.description %></li>
-</ul>
+<h1><%= @list.title %></h1>
+
+<% unless @list.description.nil? || @list.description.empty? %>
+  <h3><%= @list.description %></h3>
+<% end %>  
+
+<%= render "todos/todo_form" %>
+
+<% unless @list.todos.empty? %>
+<div class="span-20">  
+  <ul class="todos">
+    <%= render @list.todos %>
+  </ul>
+</div>
+<% end %>  

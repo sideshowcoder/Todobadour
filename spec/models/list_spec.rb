@@ -35,5 +35,29 @@ describe List do
     list = List.create!({ :title => "just a title" })
     list.slug.should_not be_blank
   end
+  
+  describe "todo association" do
+    
+    before :each do
+      @list = Factory :list
+      @tdone = Factory :todo, :list => @list, :done => true, :created_at => 2.day.ago
+      @t1 = Factory :todo, :list => @list, :created_at => 1.day.ago
+      @t2 = Factory :todo, :list => @list, :created_at => 1.hour.ago
+    end
+    
+    it "should return the todos in with done todos being last" do
+      @list.todos.should == [@t1, @t2, @tdone]
+    end
+    
+    it "should destroy associated todos" do
+      @list.destroy
+      [@t1, @t2].each do
+        lambda do
+          Todo.find @t1 
+        end.should raise_error ActiveRecord::RecordNotFound
+      end
+    end
+    
+  end
 
 end

@@ -30,4 +30,6 @@ end
 
 # Development Gems making life somewhat easier
 group :development do
+  gem "faker"
+  gem "irbtools"
 end

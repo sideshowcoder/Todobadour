@@ -1,6 +1,8 @@
 class List < ActiveRecord::Base
   attr_accessible :title, :description, :slug
   
+  has_many :todos, :dependent => :destroy
+  
   before_validation :generate_and_add_slug
   
   validates :title, :presence => true,

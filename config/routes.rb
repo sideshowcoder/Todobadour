@@ -1,6 +1,9 @@
 Todobadour::Application.routes.draw do
-  # Lists Controller
-  resources :lists, :only => [:show, :create, :destroy]
+  # Lists resource
+  resources :lists do
+    # Nested Todos with complete CRUD
+    resources :todos
+  end
     
   # Pages Controller
   get "pages/home"
