@@ -1,4 +1,7 @@
 class List < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :slug
+  
   attr_accessible :title, :description, :slug
   
   has_many :todos, :dependent => :destroy
@@ -10,7 +13,7 @@ class List < ActiveRecord::Base
   
   validates :slug, :uniqueness => true,
                    :presence => true
-                   
+                     
   private
     # generate a slug if none present before trying to validate
     def generate_and_add_slug

@@ -1,4 +1,5 @@
 class TodosController < ApplicationController
+  respond_to :html, :json    
   
   def show
     @list = current_list
@@ -21,7 +22,11 @@ class TodosController < ApplicationController
   def update
     @todo = Todo.find params[:id]
     @todo.update_attributes params[:todo]
-    redirect_to current_list
+    respond_with(@todo) do |format|
+      format.html { redirect_to current_list }
+      format.json { render :json => @todo }
+      format.xml  { render :xml  => @todo }
+    end
   end
   
   private

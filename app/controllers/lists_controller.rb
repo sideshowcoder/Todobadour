@@ -1,5 +1,6 @@
 class ListsController < ApplicationController
-  
+  respond_to :html, :json  
+    
   def show
     @list = List.find params[:id]
     @todo = Todo.new
@@ -23,7 +24,7 @@ class ListsController < ApplicationController
   def update
     @list = List.find params[:id]
     @list.update_attributes params[:list]
-    redirect_to @list
+    respond_with @list, :location => lists_url
   end
   
 end

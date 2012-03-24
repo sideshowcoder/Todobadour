@@ -4,6 +4,8 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.1'
 gem 'mysql'
 gem 'jquery-rails'
+gem 'best_in_place'
+gem 'friendly_id'
 
 # Gems used only for assets production assets are precompieled and therefor this is not needed
 group :assets do

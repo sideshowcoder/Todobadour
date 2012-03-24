@@ -21,6 +21,7 @@
 <%= render "layouts/footer" %>
 
 <% if Rails.env.development? %>
+<div style="clear:both;">
 <!-- Debug output in development -->
   <%= debug(params) %>
 <% end %>

@@ -1,9 +1,6 @@
 <div class="list-header span-15">
-<h1><%= @list.title %></h1>
-<% unless @list.description.nil? || @list.description.empty? %>
-  <h3><%= @list.description %></h3>
-<% end %>  
-</div>
+<h1><%= best_in_place @list, :title %></h1>
+<h3><%= best_in_place @list, :description, :nil => "Click me to add description" %></h3>
 
 <div class="list-actions span-15">
 <%= link_to :delete, @list, :method => :delete,
