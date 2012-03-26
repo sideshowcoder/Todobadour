@@ -1,8 +1,8 @@
 Todobadour::Application.routes.draw do
   # Lists resource
-  resources :lists do
+  resources :lists, :only => [:create, :show, :destroy, :update] do
     # Nested Todos with complete CRUD
-    resources :todos
+    resources :todos, :only => [:create, :show, :destroy, :update]
   end
     
   # Pages Controller

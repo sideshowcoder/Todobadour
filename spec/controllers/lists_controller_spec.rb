@@ -60,8 +60,7 @@ describe ListsController do
       response.should redirect_to root_path
     end
     
-  end
-  
+  end  
   
   describe "GET 'show'" do
 
@@ -77,6 +76,19 @@ describe ListsController do
       response.should have_selector "span.title", :content => @t2.title
       response.should have_selector "li.done"
     end
+    
+    it "should set a cookie" do
+      get :show, :id => @list
+      response.cookies['last_list'].should eq(@list.slug)
+    end
 
+    it "sets the cookie expiration" do
+      stub_cookie_jar = HashWithIndifferentAccess.new
+      controller.stub(:cookies) { stub_cookie_jar }
+      get :show, :id => @list
+      last_list_cookie = stub_cookie_jar['last_list']
+      last_list_cookie[:expires].to_i.should be_within(1).of(14.day.from_now.to_i)
+    end
+    
   end
 end
