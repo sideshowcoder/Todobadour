@@ -1,5 +1,9 @@
-$('#todo-list').prepend('<%=escape_javascript render(:partial => "todo", :locals => { :todo => @todo }) %>');
+<% broadcast list_path(@list) do %>
+	// add todo
+	$('#todo-list').prepend('<%=escape_javascript render(:partial => "todo", :locals => { :todo => @todo }) %>');
+	// reinitilialize in place editor for the added todo
+	$('.best_in_place').best_in_place();
+<% end %>
+
 // clear todo form
 $('form.new_todo .submittable').val('')
-// reinitilialize in place editor for the added todo!
-$('.best_in_place').best_in_place();

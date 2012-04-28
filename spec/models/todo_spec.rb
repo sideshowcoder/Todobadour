@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Todo do
 
   before :each do
-    @list = Factory :list
+    @list = FactoryGirl.create :list
     @attr = {
       :title => "buy bbq sauce",
       :done => false,

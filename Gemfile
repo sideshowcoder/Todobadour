@@ -1,21 +1,23 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
 # Gems required everywhere
-gem 'rails', '3.2.1'
-gem 'mysql'
-gem 'jquery-rails'
-gem 'best_in_place'
-gem 'friendly_id'
+gem "rails", "3.2.1"
+gem "mysql"
+gem "jquery-rails"
+gem "best_in_place"
+gem "friendly_id"
 
 # required for remote push notifications
-gem 'faye'
+gem "faye"
+gem "foreman"
+gem "thin"
 
 # Gems used only for assets production assets are precompieled and therefor this is not needed
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'compass-rails'
-  gem 'sassy-buttons'
-  gem 'uglifier', '>= 1.0.3'
+  gem "sass-rails",   "~> 3.2.3"
+  gem "compass-rails"
+  gem "sassy-buttons"
+  gem "uglifier", ">= 1.0.3"
 end
 
 # Gems needed for testing and development

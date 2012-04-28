@@ -3,10 +3,12 @@
 <head>
   <title><%= title %></title>
   <%= render "layouts/iefixes" %>
+  <% faye_url = "http://#{request.host}:9292/faye" %>
   <%= stylesheet_link_tag    "screen", :media => "screen, projection" %>
   <%= stylesheet_link_tag    "print", :media => "print" %>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "application", "#{faye_url}.js" %>
+  <script type="text/javascript">window.fayeURL = '<%= faye_url %>';</script>
   <%= csrf_meta_tags %>
 </head>
 <body>

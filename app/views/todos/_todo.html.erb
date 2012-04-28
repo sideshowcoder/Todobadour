@@ -1,17 +1,13 @@
-<% if todo.done? %>
-  <li class="done">
-<% else %>
-  <li>  
-<% end %>
-    <span class="title">
-      <%= best_in_place todo, :title, :path => list_todo_path(@list, todo) %>
-    </span>
-    <span class="done">
-      <%= best_in_place todo, :done, :type => :checkbox, 
-                                     :collection => ["✓", "☓"],
-                                     :path => list_todo_path(@list, todo) %>
-    </span>
-    <%= link_to :delete, [@list, todo], :method => :delete,
-                                        :remote => true,
-                                        :title => todo.title %>
-  </li>
+<li>  
+  <span class="title">
+    <%= best_in_place todo, :title, :path => list_todo_path(@list, todo) %>
+  </span>
+  <span class="done">
+    <%= best_in_place todo, :done, :type => :checkbox, 
+                                   :collection => ["✓", "☓"],
+                                   :path => list_todo_path(@list, todo) %>
+  </span>
+  <%= link_to :delete, [@list, todo], :method => :delete,
+                                      :remote => true,
+                                      :title => todo.title %>
+</li>

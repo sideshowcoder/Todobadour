@@ -39,10 +39,10 @@ describe List do
   describe "todo association" do
     
     before :each do
-      @list = Factory :list
-      @tdone = Factory :todo, :list => @list, :done => true, :created_at => 2.day.ago
-      @t1 = Factory :todo, :list => @list, :created_at => 1.day.ago
-      @t2 = Factory :todo, :list => @list, :created_at => 1.hour.ago
+      @list = FactoryGirl.create :list
+      @tdone = FactoryGirl.create :todo, :list => @list, :done => true, :created_at => 2.day.ago
+      @t1 = FactoryGirl.create :todo, :list => @list, :created_at => 1.day.ago
+      @t2 = FactoryGirl.create :todo, :list => @list, :created_at => 1.hour.ago
     end
         
     it "should destroy associated todos" do

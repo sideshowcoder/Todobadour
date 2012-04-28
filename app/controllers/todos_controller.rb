@@ -32,7 +32,7 @@ class TodosController < ApplicationController
     @todo.update_attributes params[:todo]
     respond_with(@todo) do |format|
       format.html { redirect_to current_list }
-      format.json { render :json => @todo }
+      format.json { respond_with_bip @todo }
     end
   end
   

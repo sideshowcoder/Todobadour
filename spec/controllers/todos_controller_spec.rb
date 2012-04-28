@@ -6,7 +6,7 @@ describe TodosController do
   describe "POST 'create'" do
 
     before(:each) do
-      @list = Factory :list
+      @list = FactoryGirl.create :list
       @attr = { :title => "Bug Sauce" }
     end
     
@@ -45,8 +45,8 @@ describe TodosController do
   describe "PUT 'update'" do
 
     before(:each) do
-      @list = Factory :list
-      @todo = Factory :todo, :list => @list
+      @list = FactoryGirl.create :list
+      @todo = FactoryGirl.create :todo, :list => @list
       @attr = { :title => "Bug Sauce" }
     end
     
@@ -83,8 +83,8 @@ describe TodosController do
   describe "Delete 'destroy'" do
     
     before(:each) do
-      @list = Factory :list
-      @todo = Factory :todo, :list => @list
+      @list = FactoryGirl.create :list
+      @todo = FactoryGirl.create :todo, :list => @list
     end
     
     it "should delete a todo" do
