@@ -1,3 +1,5 @@
-<% broadcast list_path(@list) do %>
+<% publish list_path(@list) do %>
 	$('#todo-list').replaceWith('<%=escape_javascript render( :partial => "lists/todolist", :locals => { :todos => @list.todos }) %>');
+	// reinitilialize in place editor
+	$('.best_in_place').best_in_place();
 <% end %>

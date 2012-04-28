@@ -1,5 +1,7 @@
 class TodosController < ApplicationController
   respond_to :html, :js, :json
+    
+  include ApplicationHelper
   
   def show
     @list = current_list
@@ -30,6 +32,9 @@ class TodosController < ApplicationController
   def update
     @todo = Todo.find params[:id]
     @todo.update_attributes params[:todo]
+    
+    broadcast list_path( current_list ), @todo.to_json
+    
     respond_with(@todo) do |format|
       format.html { redirect_to current_list }
       format.json { respond_with_bip @todo }
@@ -44,5 +49,5 @@ class TodosController < ApplicationController
     def todo_list todo
       List.find todo.list_id
     end
-  
+          
 end
