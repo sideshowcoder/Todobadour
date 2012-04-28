@@ -40,9 +40,13 @@ describe List do
     
     before :each do
       @list = FactoryGirl.create :list
-      @tdone = FactoryGirl.create :todo, :list => @list, :done => true, :created_at => 2.day.ago
-      @t1 = FactoryGirl.create :todo, :list => @list, :created_at => 1.day.ago
-      @t2 = FactoryGirl.create :todo, :list => @list, :created_at => 1.hour.ago
+      @t0 = FactoryGirl.create :todo, :list => @list, :created_at => 2.day.ago, :position => 1
+      @t1 = FactoryGirl.create :todo, :list => @list, :created_at => 1.day.ago, :position => 3
+      @t2 = FactoryGirl.create :todo, :list => @list, :created_at => 1.hour.ago, :position => 2
+    end
+    
+    it "should return the todos in oder of order" do
+      @list.todos.rank(:position).should == [@t0, @t2, @t1]
     end
         
     it "should destroy associated todos" do

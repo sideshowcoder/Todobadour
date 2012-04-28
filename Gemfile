@@ -6,6 +6,7 @@ gem "mysql"
 gem "jquery-rails"
 gem "best_in_place"
 gem "friendly_id"
+gem "ranked-model"
 
 # required for remote push notifications
 gem "faye"

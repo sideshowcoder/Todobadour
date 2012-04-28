@@ -1,5 +1,5 @@
 class Todo < ActiveRecord::Base
-  attr_accessible :title, :done
+  attr_accessible :title, :done, :position
   
   belongs_to :list  
   
@@ -9,6 +9,11 @@ class Todo < ActiveRecord::Base
                     :length => { :maximum => 140 }
 
   validates :list_id, :presence => true
+  
+  # default_scope :order => 'position desc'
+  
+  include RankedModel
+  ranks :position
   
   private
     def default_values

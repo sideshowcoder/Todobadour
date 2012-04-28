@@ -1,6 +1,10 @@
 
 $(function(){
 	
+	// Make list sortable
+	$('#todo-list').sortable();
+	$("#todo-list").disableSelection();
+	
 	// handle the updating of a todo changed by best_in_place
 	function update_todo(d){
 		// update the todo title
