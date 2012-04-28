@@ -7,6 +7,9 @@ gem 'jquery-rails'
 gem 'best_in_place'
 gem 'friendly_id'
 
+# required for remote push notifications
+gem 'faye'
+
 # Gems used only for assets production assets are precompieled and therefor this is not needed
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
