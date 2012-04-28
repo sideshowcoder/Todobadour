@@ -1,6 +1,4 @@
-(function($){
-	$(function(){
-		// Setup inplace editor
-		$('.best_in_place').best_in_place();
-	});
-})(jQuery);
+$(function(){
+	// Setup inplace editor
+	$('.best_in_place').best_in_place();
+});

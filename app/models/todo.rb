@@ -10,9 +10,6 @@ class Todo < ActiveRecord::Base
 
   validates :list_id, :presence => true
   
-  # Done todos come last
-  default_scope :order => "todos.done ASC"
-
   private
     def default_values
       self.done ||= false

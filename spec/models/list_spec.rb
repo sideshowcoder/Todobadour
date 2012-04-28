@@ -44,11 +44,7 @@ describe List do
       @t1 = Factory :todo, :list => @list, :created_at => 1.day.ago
       @t2 = Factory :todo, :list => @list, :created_at => 1.hour.ago
     end
-    
-    it "should return the todos in with done todos being last" do
-      @list.todos.should == [@t1, @t2, @tdone]
-    end
-    
+        
     it "should destroy associated todos" do
       @list.destroy
       [@t1, @t2].each do

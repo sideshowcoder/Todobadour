@@ -1,5 +1,5 @@
 class TodosController < ApplicationController
-  respond_to :html, :json    
+  respond_to :html, :js, :json
   
   def show
     @list = current_list
@@ -7,16 +7,24 @@ class TodosController < ApplicationController
   end
   
   def create
-    @todo = current_list.todos.build params[:todo]
+    @list = current_list
+    @todo = @list.todos.build params[:todo]
     if @todo.save
       flash[:success] = "Todo created"
     end
-    redirect_to current_list      
+    respond_with(@todo) do |format|
+      format.js
+      format.html { redirect_to current_list }
+    end
   end
   
   def destroy
     Todo.find(params[:id]).destroy
-    redirect_to current_list
+    @list = current_list
+    respond_with() do |format|
+      format.js
+      format.html { redirect_to current_list }
+    end
   end
   
   def update
@@ -25,13 +33,16 @@ class TodosController < ApplicationController
     respond_with(@todo) do |format|
       format.html { redirect_to current_list }
       format.json { render :json => @todo }
-      format.xml  { render :xml  => @todo }
     end
   end
   
   private
     def current_list
       List.find params[:list_id]
+    end
+    
+    def todo_list todo
+      List.find todo.list_id
     end
   
 end

@@ -12,9 +12,5 @@
 <%= render "todos/todo_form" %>
 
 <% unless @list.todos.empty? %>
-<div class="span-15">  
-  <ul class="todos">
-    <%= render @list.todos %>
-  </ul>
-</div>
+  <%= render :partial => "todolist", :locals => { :todos => @list.todos }%>
 <% end %>  

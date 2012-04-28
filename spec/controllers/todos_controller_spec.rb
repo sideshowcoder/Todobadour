@@ -2,21 +2,7 @@ require 'spec_helper'
 
 describe TodosController do
   render_views
-  
-  describe "GET 'show'" do
     
-    before(:each) do
-      @list = Factory :list
-      @todo = Factory :todo, :list => @list 
-    end
-    
-    it "should show a single todo" do
-      get :show, :list_id => @list, :id => @todo
-      response.should have_selector "span.title", :content => @todo.title
-    end
-    
-  end
-  
   describe "POST 'create'" do
 
     before(:each) do
