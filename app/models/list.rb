@@ -13,7 +13,11 @@ class List < ActiveRecord::Base
   
   validates :slug, :uniqueness => true,
                    :presence => true
-                     
+  
+  def ordered_todos
+    self.todos.rank(:position)
+  end
+  
   private
     # generate a slug if none present before trying to validate
     def generate_and_add_slug

@@ -12,5 +12,5 @@
 <%= render "todos/todo_form" %>
 
 <% unless @list.todos.empty? %>
-  <%= render :partial => "todolist", :locals => { :todos => @list.todos }%>
+  <%= render :partial => "todolist", :locals => { :todos => @list.ordered_todos }%>
 <% end %>  

@@ -19,6 +19,7 @@ group :assets do
   gem "compass-rails"
   gem "sassy-buttons"
   gem "uglifier", ">= 1.0.3"
+  gem 'jquery-ui-rails'
 end
 
 # Gems needed for testing and development

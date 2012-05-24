@@ -10,8 +10,6 @@ class Todo < ActiveRecord::Base
 
   validates :list_id, :presence => true
   
-  # default_scope :order => 'position desc'
-  
   include RankedModel
   ranks :position
   

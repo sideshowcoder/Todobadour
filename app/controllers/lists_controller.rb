@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-  respond_to :html, :json  
+  respond_to :html, :json, :js
     
   def show
     @list = List.find params[:id]
@@ -26,8 +26,21 @@ class ListsController < ApplicationController
   
   def update
     @list = List.find params[:id]
-    @list.update_attributes params[:list]
+    list = params[:list]
+    
+    # Save ranking
+    if list[:todos]
+      @list.todos.each do |todo|
+        todo.position = list[:todos].index("todo_#{todo.id}")
+        todo.save
+      end
+      list.delete(:todos)
+    end
+    
+    # save other updates
+    @list.update_attributes list
     respond_with(@list) do |format|
+      format.js
       format.html { render @list }
       format.json { respond_with_bip @list }
     end
