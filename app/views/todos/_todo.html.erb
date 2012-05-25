@@ -1,8 +1,8 @@
-<li id="todo_<%= todo.id %>">  
-  <span class="title">
+<li id='todo_<%= todo.id %>'>  
+  <span class='title'>
     <%= best_in_place todo, :title, :path => list_todo_path(@list, todo) %>
   </span>
-  <span class="done">
+  <span class='done'>
     <%= best_in_place todo, :done, :type => :checkbox, 
                                    :collection => ["✓", "☓"],
                                    :path => list_todo_path(@list, todo) %>

@@ -22,7 +22,8 @@ class TodosController < ApplicationController
   end
   
   def destroy
-    Todo.find(params[:id]).destroy
+    @removeId = params[:id]
+    Todo.find(@removeId).destroy
     @list = current_list
     respond_with() do |format|
       format.js

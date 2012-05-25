@@ -1,6 +1,6 @@
 var list = {};
 
-list.makeSortable = function(){
+list.initSortable = function(){
 	// Make list sortable if the user hovers over it
 	$('#todo-list').sortable({
 		update: function(event, ui){
@@ -14,30 +14,40 @@ list.makeSortable = function(){
 	$("#todo-list").disableSelection();	
 };
 
-// handle the updating of a todo changed by best_in_place
-list.updateTodo = function(d){
-	// update the todo title
-	$('#best_in_place_todo_' + d.id + '_title').html(d.title);
-	// get done and not done tags 
-	var done = $('#best_in_place_todo_' + d.id + '_done');
-	var tags = done.data('collection');
-	d.done ? done.html(tags[1]) : done.html(tags[0])
+list.initBestInPlace = function(){
+	$('.best_in_place', $('#todo-list')).best_in_place();
+};
+
+list.pushedUpdate = function(data){
+	try {
+		// Handle Best in Place update via JSON
+
+		var d = JSON.parse(data);
+		// update the todo title
+		$('#best_in_place_todo_' + d.id + '_title').html(d.title);
+		// get done and not done tags 
+		var done = $('#best_in_place_todo_' + d.id + '_done');
+		var tags = done.data('collection');
+		d.done ? done.html(tags[1]) : done.html(tags[0])		
+
+	} catch (err) {
+		// Handle all other Updates via pushed HTML
+		$('#todo-list').replaceWith(data);		
+	}
+
+	// Reinit editing after update
+	list.initBestInPlace()
+	list.initSortable();
 };
 
 $(function(){
 	// Initialize List as sortable
-	list.makeSortable();
+	list.initSortable();
+	// Best in place initialized via Main Site
 		
 	// subscribe to messages for the current active list
 	var faye = new Faye.Client(FAYE_URL);
 	faye.subscribe(window.location.pathname, function(data){
-		try {
-			// json from a update via best in place
-			var d = JSON.parse(data);
-			list.updateTodo(d)
-		} catch(err) {
-			// create a new todo or delete one
-			eval(data);
-		}
+		list.pushedUpdate(data);
 	});	
 })

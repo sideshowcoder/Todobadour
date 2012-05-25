@@ -1,6 +1,3 @@
 <% publish list_path(@list) do %>
-	$('#todo-list').replaceWith('<%=escape_javascript render( :partial => "lists/todolist", :locals => { :todos => @list.ordered_todos }) %>');
-	// reinitilialize in place editor and sorting
-	$('.best_in_place').best_in_place();
-	list.makeSortable();
+	<%= render( :partial => "lists/todolist", :locals => { :todos => @list.ordered_todos }) %>
 <% end %>
