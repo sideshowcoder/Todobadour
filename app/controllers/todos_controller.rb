@@ -11,6 +11,7 @@ class TodosController < ApplicationController
   def create
     @list = current_list
     @todo = @list.todos.build params[:todo]
+    @todo.position = RankedModel::MIN_RANK_VALUE
     if @todo.save
       flash[:success] = "Todo created"
     end
