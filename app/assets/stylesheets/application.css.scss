@@ -1,15 +1,6 @@
-// Configure Bluepring
-@import "base/base";
-
-// Load Blueprint
-@import "blueprint";
-
 // Load Compass
-@import "compass";
+@import "compass/reset";
 @import "compass/css3";
-
-// Load Mixins
-@import "base/sassybuttons";
 
 // Load styles
 @import "list";

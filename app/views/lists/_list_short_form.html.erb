@@ -1,10 +1,10 @@
-<div class="span-15 list-short-form">
+<div>
 <%= form_for @list do |f| %>
   <%= render "shared/error_messages", :object => f.object %>
-  <div class="span-9">
+  <div>
     <%= f.text_field :title %>
   </div>
-  <div class="action span-5">
+  <div>
     <%= f.submit "Make a list" %>
   </div>
 <% end %>

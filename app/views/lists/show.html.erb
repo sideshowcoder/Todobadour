@@ -1,8 +1,8 @@
-<div class="list-header span-15">
+<div>
 <h1><%= best_in_place @list, :title %></h1>
 <h3><%= best_in_place @list, :description, :nil => "Click me to add description" %></h3>
 
-<div class="list-actions span-15">
+<div>
 <%= link_to :delete, @list, :method => :delete,
                             :confirm => "Are you sure?",
                             :title => @list.title %>
@@ -11,6 +11,8 @@
 
 <%= render "todos/todo_form" %>
 
-<% unless @list.todos.empty? %>
+<% if @list.todos.empty? %>
+  <ul id="todo-list"></ul>
+<% else %>
   <%= render :partial => "todolist", :locals => { :todos => @list.ordered_todos }%>
 <% end %>  

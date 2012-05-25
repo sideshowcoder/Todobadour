@@ -1,10 +1,10 @@
-<div class="todo-form span-15">
+<div class="todo-form">
 <%= form_for [@list, @todo], :remote => true do |f| %>
   <%= render "shared/error_messages", :object => f.object %>
-  <div class="span-9">
+  <div>
     <%= f.text_field :title, :class => "submittable" %>
   </div>
-  <div class="action span-5">
+  <div>
     <%= f.submit "Add" %>
   </div>
 <% end %>

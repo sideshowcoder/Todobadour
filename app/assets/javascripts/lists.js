@@ -47,7 +47,9 @@ $(function(){
 		
 	// subscribe to messages for the current active list
 	var faye = new Faye.Client(FAYE_URL);
-	faye.subscribe(window.location.pathname, function(data){
-		list.pushedUpdate(data);
-	});	
+	if (window.location.pathname.match('lists')) {		
+		faye.subscribe(window.location.pathname, function(data){
+			list.pushedUpdate(data);
+		});	
+	}
 })

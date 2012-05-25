@@ -1,3 +1,5 @@
 <% publish list_path(@list) do %>
 	<%= render( :partial => "lists/todolist", :locals => { :todos => @list.ordered_todos }) %>
 <% end %>
+
+$('#todo_title').val('');

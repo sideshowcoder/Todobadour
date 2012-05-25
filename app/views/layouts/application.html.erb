@@ -2,13 +2,15 @@
 <html>
 <head>
   <title><%= title %></title>
+ 
   <%= render "layouts/iefixes" %>
+ 
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  
   <% faye_url = "http://#{request.host}:9292/faye" %>
-  <%= stylesheet_link_tag    "screen", :media => "screen, projection" %>
-  <%= stylesheet_link_tag    "print", :media => "print" %>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application", "#{faye_url}.js" %>
   <%= javascript_tag "var FAYE_URL = '#{faye_url}';" %>
+  
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -16,7 +18,7 @@
 
 <%= render "layouts/header" %>
 
-<div class="span-24 content">
+<div class="content">
 <%= yield %>
 </div>
 
