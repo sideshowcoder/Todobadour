@@ -13,6 +13,9 @@ gem "faye"
 gem "foreman"
 gem "thin"
 
+# deployment
+gem "heroku"
+
 # Gems used only for assets production assets are precompieled and therefor this is not needed
 group :assets do
   gem "sass-rails",   "~> 3.2.3"
