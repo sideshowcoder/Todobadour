@@ -1,3 +1,6 @@
+# Mac Stuff
+.DS_Store
+
 # Ignore bundler config
 /.bundle
 
@@ -8,3 +11,6 @@
 webrat.log
 /log/*.log
 /tmp
+
+# Ignore database.yml since it is not wanted on heroku
+/config/database.yml
