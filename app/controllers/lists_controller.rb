@@ -47,7 +47,20 @@ class ListsController < ApplicationController
   end
   
   def email
-    puts "foo"
+    # FIXME Write Spec test
+    @list = List.find params[:id]
+    # FIXME Validate
+    receiver = params[:receiver]
+    sender = params[:sender]
+    
+    ShareMailer.share_list(@list, receiver, sender).deliver
+    
+    respond_with(@list) do |format|
+      format.js
+      format.json { true.to_json }
+      format.html { render @list }
+    end
+    
   end
     
 end

@@ -2,4 +2,5 @@
 	<%= render( :partial => "lists/todolist", :locals => { :todos => @list.ordered_todos }) %>
 <% end %>
 
-$('#todo_title').val('');
+jQuery ($) ->
+	$('#todo_title').val ''

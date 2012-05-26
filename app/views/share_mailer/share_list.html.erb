@@ -1,3 +1,6 @@
-<h1>Hi <%= @to_name %>,</h1>
+<h1>Hi <%= @receiver %>,</h1>
 
-<p><%= @from_name %> wants to share a list with you, visit <%= link_to "", list_path(@list) %></p>
+<p><%= @sender %> wants to organize <%= @list.title %> with you, visit 
+<%= link_to "", list_path(@list) %></p>
+  
+<p>Your Todobadour Team</p>
