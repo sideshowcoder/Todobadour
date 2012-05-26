@@ -46,4 +46,8 @@ class ListsController < ApplicationController
     end
   end
   
+  def email
+    puts "foo"
+  end
+    
 end

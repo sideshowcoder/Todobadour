@@ -1,3 +1,9 @@
+require 'pusher'
+
+Pusher.app_id = '21244'
+Pusher.key    = '50ef2e4f8693f113fe14'
+Pusher.secret = '1d02f3a97733b6838369'
+
 Todobadour::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 

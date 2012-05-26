@@ -35,7 +35,7 @@ class TodosController < ApplicationController
     @todo = Todo.find params[:id]
     @todo.update_attributes params[:todo]
     
-    broadcast list_path( current_list ), @todo.to_json
+    broadcast current_list.slug, "list_update", @todo.to_json
     
     respond_with(@todo) do |format|
       format.html { redirect_to current_list }

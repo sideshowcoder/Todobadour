@@ -2,15 +2,20 @@
 <html>
 <head>
   <title><%= title %></title>
- 
   <%= render "layouts/iefixes" %>
- 
   <%= stylesheet_link_tag "application", :media => "all" %>
-  
-  <% faye_url = "http://#{request.host}:9292/faye" %>
-  <%= javascript_include_tag "application", "#{faye_url}.js" %>
-  <%= javascript_tag "var FAYE_URL = '#{faye_url}';" %>
-  
+  <%= javascript_include_tag "application", "http://js.pusher.com/1.11/pusher.min.js" %>
+  <%= javascript_tag "var PUSHER_KEY = '#{Pusher.key}';" %>
+  <% if Rails.env.development? %>
+  <script>// Enable pusher logging
+    Pusher.log = function(message) {
+      if (window.console && window.console.log) window.console.log(message);
+    };
+
+    // Flash fallback logging
+    WEB_SOCKET_DEBUG = true;
+  </script>
+  <% end %>
   <%= csrf_meta_tags %>
 </head>
 <body>

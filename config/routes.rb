@@ -1,6 +1,9 @@
 Todobadour::Application.routes.draw do
   # Lists resource
-  resources :lists, :only => [:create, :show, :destroy, :update] do
+  resources :lists, :only => [:create, :show, :destroy, :update, :email] do
+    member do
+      post :email
+    end
     # Nested Todos with complete CRUD
     resources :todos, :only => [:create, :show, :destroy, :update]
   end

@@ -9,7 +9,7 @@ gem "friendly_id"
 gem "ranked-model"
 
 # required for remote push notifications
-gem "faye"
+gem "pusher"
 gem "foreman"
 gem "thin"
 

@@ -1,2 +1,1 @@
-web:    bundle exec thin start -p $PORT
-worker: bundle exec rackup faye.ru -s thin -E production
+web:    bundle exec thin start -p 3000

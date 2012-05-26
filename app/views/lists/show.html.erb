@@ -1,3 +1,5 @@
+<%= javascript_tag "var LIST_ID = '#{@list.slug}';" %>
+
 <div>
 <h1><%= best_in_place @list, :title %></h1>
 <h3><%= best_in_place @list, :description, :nil => "Click me to add description" %></h3>

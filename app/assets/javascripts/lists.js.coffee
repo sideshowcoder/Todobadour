@@ -38,8 +38,9 @@ jQuery ($) ->
 	list = new List '#todo-list'	
 	do list.asSortable
 	
-	if window.location.pathname.match 'lists'
-		faye = new Faye.Client FAYE_URL 
-		faye.subscribe window.location.pathname, (data) ->
+	if LIST_ID? 
+		pusher = new Pusher(PUSHER_KEY)
+		channel = pusher.subscribe LIST_ID
+		channel.bind 'list_update', (data) ->
 			list.update data
 	
