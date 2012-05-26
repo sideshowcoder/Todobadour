@@ -1,10 +1,9 @@
-require "faker"
-
 namespace :db do
 
   desc "Fill DB with sample Data"
 
   task :populate => :environment do
+    require "faker"
     # Clear the DB
     Rake::Task["db:reset"].invoke
     # prepare the test DB after Reset
