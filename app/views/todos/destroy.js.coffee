@@ -1,3 +1,7 @@
-<% publish @list.slug, "list_update" do %>
-	<%= render( :partial => "lists/todolist", :locals => { :todos => @list.ordered_todos }) %>
+<% publish @list.slug, "remove_todo", @socket_id do %>
+	<%= "\#todo_#{@removeId}" %>
 <% end %>
+
+jQuery ($) ->
+	list.removeTodo '<%=escape_javascript "\#todo_#{@removeId}" %>'
+	$('#todo_title').val ''

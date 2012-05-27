@@ -7,12 +7,12 @@ module ApplicationHelper
   end
   
   # Broadcast a message via Pusher
-  def publish channel, event, &block
-    broadcast channel, event, capture(&block)
+  def publish channel, event, exclude, &block
+    broadcast channel, event, capture(&block), exclude
   end
   
-  def broadcast channel, event, message
-    Pusher[channel].trigger event, message
+  def broadcast channel, event, message, exclude
+    Pusher[channel].trigger event, message, exclude
   end
     
 end

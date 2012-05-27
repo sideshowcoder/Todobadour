@@ -26,6 +26,8 @@ class ListsController < ApplicationController
   
   def update
     @list = List.find params[:id]
+    @socket_id = socket_id
+    puts "My Socket ID is #{socket_id}"
     list = params[:list]
     
     # Save ranking
@@ -62,5 +64,10 @@ class ListsController < ApplicationController
     end
     
   end
+  
+  private 
+    def socket_id
+      params[:socket_id] || ""
+    end
     
 end
