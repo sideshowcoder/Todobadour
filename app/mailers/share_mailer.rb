@@ -1,7 +1,7 @@
 class ShareMailer < ActionMailer::Base
   default :from => "norepley@todobadour.herokuapp.com"
   
-  def share_list list, receiver, sender
+  def share_list list, sender, receiver
     @list = list
     @sender = sender
     @receiver = receiver

@@ -27,7 +27,6 @@ class ListsController < ApplicationController
   def update
     @list = List.find params[:id]
     @socket_id = socket_id
-    puts "My Socket ID is #{socket_id}"
     list = params[:list]
     
     # Save ranking
@@ -49,13 +48,12 @@ class ListsController < ApplicationController
   end
   
   def email
-    # FIXME Write Spec test
     @list = List.find params[:id]
-    # FIXME Validate
+
     receiver = params[:receiver]
     sender = params[:sender]
     
-    ShareMailer.share_list(@list, receiver, sender).deliver
+    @list.share_via_email sender, receiver
     
     respond_with(@list) do |format|
       format.js

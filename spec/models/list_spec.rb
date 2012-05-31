@@ -35,7 +35,7 @@ describe List do
     list = List.create!({ :title => "just a title" })
     list.slug.should_not be_blank
   end
-  
+    
   describe "todo association" do
     
     before :each do
@@ -56,6 +56,21 @@ describe List do
           Todo.find @t1 
         end.should raise_error ActiveRecord::RecordNotFound
       end
+    end
+    
+  end
+  
+  describe "share via email" do
+    
+    before :each do
+      @list = FactoryGirl.create :list
+      @sender = "test@test.com"
+      @receiver = "test2@test2.com"
+    end
+    
+    it "should share itself via email" do
+      @list.share_via_email @sender, @receiver
+      ActionMailer::Base.deliveries.last.to.should == [@receiver]
     end
     
   end

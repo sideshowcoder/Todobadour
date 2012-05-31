@@ -18,6 +18,10 @@ class List < ActiveRecord::Base
     self.todos.rank(:position)
   end
   
+  def share_via_email sender, receiver
+    ShareMailer.share_list(self, sender, receiver).deliver
+  end
+  
   private
     # generate a slug if none present before trying to validate
     def generate_and_add_slug
