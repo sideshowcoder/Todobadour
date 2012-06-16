@@ -11,3 +11,4 @@
 webrat.log
 /log/*.log
 /tmp
+ .rvmrc

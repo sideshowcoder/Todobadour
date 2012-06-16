@@ -12,10 +12,10 @@ test:
   pool: 5
   timeout: 5000
   
-# FIXME Production 
+# Production 
 production:
   adapter: mysql
-  username: FIXME
-  password: FIXME
+  username: tdbd
+  password: fkaqr90ß13u780r413qhjfnqiopFIN
   host: localhost
-  database: todobadour_production
+  database: todobadour
