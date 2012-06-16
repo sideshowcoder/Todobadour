@@ -1,0 +1,21 @@
+development:
+  adapter: mysql
+  username: dev
+  password: gyiy3skr
+  host: localhost
+  database: todobadour_development
+
+# Test uses sqlite for simplicity sake
+test:
+  adapter: sqlite3
+  database: db/test.sqlite3
+  pool: 5
+  timeout: 5000
+  
+# FIXME Production 
+production:
+  adapter: mysql
+  username: FIXME
+  password: FIXME
+  host: localhost
+  database: todobadour_production

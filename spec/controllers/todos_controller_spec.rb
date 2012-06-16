@@ -46,6 +46,8 @@ describe TodosController do
   describe "PUT 'update'" do
   
     before(:each) do
+      # make sure request host is set since it is needed for faye notifications
+      @request.host = 'localhost'
       @list = FactoryGirl.create :list
       @todo = FactoryGirl.create :todo, :list => @list
       @attr = { :title => "Bug Sauce" }

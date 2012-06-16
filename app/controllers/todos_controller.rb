@@ -9,7 +9,6 @@ class TodosController < ApplicationController
   end
   
   def create
-    @socket_id = socket_id
     @list = current_list
     @todo = @list.todos.build params[:todo]
     @todo.position = RankedModel::MIN_RANK_VALUE
@@ -23,7 +22,6 @@ class TodosController < ApplicationController
   end
   
   def destroy
-    @socket_id = socket_id
     @removeId = params[:id]
     Todo.find(@removeId).destroy
     @list = current_list
@@ -37,7 +35,7 @@ class TodosController < ApplicationController
     @todo = Todo.find params[:id]
     @todo.update_attributes params[:todo]
     
-    broadcast current_list.slug, "update_todo", @todo.to_json, socket_id
+    broadcast current_list.slug, "update", @todo.to_json
     
     respond_with(@todo) do |format|
       format.html { redirect_to current_list }
@@ -46,9 +44,6 @@ class TodosController < ApplicationController
   end
   
   private
-    def socket_id
-      params[:socket_id] || ""
-    end
     
     def current_list
       List.find params[:list_id]

@@ -9,12 +9,9 @@ gem "friendly_id"
 gem "ranked-model"
 
 # required for remote push notifications
-gem "pusher"
 gem "foreman"
 gem "thin"
-
-# deployment
-gem "heroku"
+gem "faye"
 
 # Gems used only for assets production assets are precompieled and therefor this is not needed
 group :assets do

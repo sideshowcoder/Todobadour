@@ -9,8 +9,7 @@ jQuery ($) ->
 			$(@id)
 		
 		asSortable: ->
-			that = this
-			@current_list().sortable update: (event, ui) ->
+			@current_list().sortable update: (event, ui) =>
 				$.ajax 
 					type: 'PUT'
 					dataType: 'script'
@@ -53,29 +52,22 @@ jQuery ($) ->
 			do @asSortable
 		
 			
-	if LIST_ID? 
-		socket_id = ""
-		root.list = list = new List '#todo-list', socket_id
+	if LIST_ID? 			
+		root.list = list = new List '#todo-list'
 		do list.asSortable
-
-		pusher = new Pusher(PUSHER_KEY)
-		channel = pusher.subscribe LIST_ID
 		
-		pusher.connection.bind 'connected', ->
-			$.ajaxSetup
-				data:
-					socket_id: pusher.connection.socket_id
-
-		channel.bind 'add_todo', (data) ->
+		faye = new Faye.Client FAYE_URL 
+		
+		subscribe = faye.subscribe "#{window.location.pathname}/add", (data) ->
 			list.addTodo data
 			
-		channel.bind 'remove_todo', (data) ->
+		faye.subscribe "#{window.location.pathname}/remove", (data) ->
 			list.removeTodo data
 
-		channel.bind 'update_todo', (data) ->
+		faye.subscribe "#{window.location.pathname}/update", (data) ->
 			list.updateTodo data
 		
-		channel.bind 'reorder_list', (data) ->
+		faye.subscribe "#{window.location.pathname}/reorder", (data) ->
 			list.reorder data
 		
 			
