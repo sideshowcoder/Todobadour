@@ -21,9 +21,9 @@ gem "rvm-capistrano"
 group :assets do
   gem "sass-rails"
   gem "compass-rails"
-  gem 'coffee-rails'
+  gem "coffee-rails"
   gem "uglifier"
-  gem "jquery-ui-rails"
+  gem "jquery-ui-rails", :git => "git://github.com/iuliancostan/jquery-ui-rails.git"
 end
 
 # Gems needed for testing and development
