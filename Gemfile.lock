@@ -205,6 +205,8 @@ GEM
       railties (>= 3.0)
       rspec (~> 2.10.0)
     ruby_gntp (0.3.4)
+    rvm-capistrano (1.2.2)
+      capistrano (>= 2.0.0)
     sass (3.1.19)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
@@ -266,6 +268,7 @@ DEPENDENCIES
   rails (= 3.2.6)
   ranked-model
   rspec-rails
+  rvm-capistrano
   sass-rails
   sqlite3
   thin

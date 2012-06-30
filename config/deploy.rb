@@ -1,6 +1,6 @@
-$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
-require 'rvm/capistrano'
 require "bundler/capistrano"
+require "rvm/capistrano"
+
 default_run_options[:pty] = true
 
 set :application, "todobadour"
@@ -8,7 +8,9 @@ set :repository,  "git@github.com:sideshowcoder/Todobadour.git"
 set :branch, "master"
 
 set :scm, :git
-set :rvm_ruby_string, "1.9.2"
+
+set :rvm_ruby_string, "1.9.3"
+set :rvm_type, :system
 
 set :user, "deployer"
 set :use_sudo, false
@@ -21,11 +23,18 @@ role :db,  "todobadour.sideshowcoder.com", :primary => true        # Database Se
 
 after 'deploy:update', 'foreman:export'
 after 'deploy:update', 'foreman:restart'
-after "deploy:update_code", "deploy:pipeline_precompile"
+after "deploy:update_code", "deploy:assets:precompile"
 
 namespace :deploy do
-  task :pipeline_precompile do
-    run "cd #{release_path} && RAILS_ENV=production bundle exec rake assets:precompile"
+  namespace :assets do
+    task :precompile, :roles => :web, :except => { :no_release => true } do
+      from = source.next_revision(current_revision)
+      if capture("cd #{latest_release} && #{source.local.log(from)} vendor/assets/ app/assets/ | wc -l").to_i > 0
+        run %Q{cd #{latest_release} && #{rake} RAILS_ENV=#{rails_env} #{asset_env} assets:precompile}
+      else
+        logger.info "Skipping asset pre-compilation because there were no asset changes"
+      end
+    end
   end
 end
 

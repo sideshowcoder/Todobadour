@@ -15,6 +15,7 @@ gem "faye"
 
 # deployment
 gem "capistrano"
+gem "rvm-capistrano"
 
 # Gems used only for assets production assets are precompieled and therefor this is not needed
 group :assets do
