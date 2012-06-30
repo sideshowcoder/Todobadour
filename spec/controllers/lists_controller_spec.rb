@@ -65,7 +65,7 @@ describe ListsController do
   describe "GET 'show'" do
 
     before(:each) do
-      @list = List.create! :title => "Shopping for BBQ", 
+      @list = List.create! :title => "Shopping for BBQ"
     end
     
     it "should show the lists todos" do

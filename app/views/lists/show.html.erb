@@ -6,7 +6,7 @@
 
 <div>
 <%= link_to :delete, @list, :method => :delete,
-                            :confirm => "Are you sure?",
+                            :data => { :confirm => "Are you sure?" },
                             :title => @list.title %>
 </div>
 

@@ -23,7 +23,7 @@ group :assets do
   gem "compass-rails"
   gem "coffee-rails"
   gem "uglifier"
-  gem "jquery-ui-rails", :git => "git://github.com/iuliancostan/jquery-ui-rails.git"
+  gem "jquery-ui-rails"
 end
 
 # Gems needed for testing and development

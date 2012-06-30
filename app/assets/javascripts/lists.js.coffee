@@ -15,7 +15,7 @@ jQuery ($) ->
 					dataType: 'script'
 					data:
 						list:
-							todos: that.current_list().sortable 'toArray'
+							todos: this.current_list().sortable 'toArray'
 			do @current_list().disableSelection
 		
 		asBestInPlace: ->
