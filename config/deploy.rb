@@ -23,15 +23,6 @@ role :db,  "todobadour.sideshowcoder.com", :primary => true        # Database Se
 
 after 'deploy:update', 'foreman:export'
 after 'deploy:update', 'foreman:restart'
-after "deploy:update_code", "deploy:assets:precompile"
-
-namespace :deploy do
-  namespace :assets do
-    task :precompile, :roles => :web, :except => { :no_release => true } do
-      run "cd #{release_path} && RAILS_ENV=production bundle exec rake assets:precompile"
-    end
-  end
-end
 
 namespace :foreman do
   desc "Export the Procfile to Ubuntu's upstart scripts"

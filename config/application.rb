@@ -61,7 +61,6 @@ module Todobadour
 
     # Enable the asset pipeline
     config.assets.enabled = true
-    # Precompile *all* assets, except those that start with underscore
     config.assets.initialize_on_precompile = false
 
     # Version of your assets, change this if you want to expire all your assets
