@@ -15,6 +15,11 @@ describe PagesController do
   end
   
   describe "GET 'home'" do
+    before(:each) do
+      @list = FactoryGirl.create :list
+      request.cookies[:last_list] = @list
+    end
+    
     it "returns http success" do
       get 'home'
       response.should be_success
@@ -22,6 +27,14 @@ describe PagesController do
     it "should have the title about" do
       get 'home'
       response.should have_selector "title", :content => "Todobadour"
+    end
+    it "should display the last list if set" do
+      get "home"
+      response.should have_selector "div", :content => "Go back to #{@list.title}"
+    end
+    it "should display no list if last list not found" do
+      request.cookies[:last_list] = "foobar"
+      get "home"
     end
   end
   
