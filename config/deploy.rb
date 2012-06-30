@@ -23,7 +23,7 @@ role :db,  "todobadour.sideshowcoder.com", :primary => true        # Database Se
 
 after 'deploy:update', 'foreman:export'
 after 'deploy:update', 'foreman:restart'
-after "deploy:update_code", "deploy:assets:precompile"
+# after "deploy:update_code", "deploy:assets:precompile"
 
 namespace :deploy do
   namespace :assets do
@@ -41,8 +41,14 @@ end
 namespace :foreman do
   desc "Export the Procfile to Ubuntu's upstart scripts"
   task :export, :roles => :app do
-    run "cd #{release_path} && rvmsudo bundle exec foreman export upstart /etc/init " +
-        "-f ./Procfile -a #{application} -u #{user} -l #{shared_path}/log"
+    foreman_temp = "/tmp/#{application}-foreman"
+    run [
+      "mkdir -p #{foreman_temp}",
+      "cd #{release_path}",
+      "bundle exec foreman export upstart #{foreman_temp} -a #{application} -u #{user} -l #{shared_path}/log -f Procfile.production",
+      "sudo mv #{foreman_temp}/#{application}*.conf /etc/init/",
+      "rm -rf #{foreman_temp}"
+    ].join('&&')
   end
 
   desc "Start the application services"
