@@ -7,6 +7,7 @@ gem "jquery-rails"
 gem "best_in_place"
 gem "friendly_id"
 gem "ranked-model"
+gem "coffee-rails"
 
 # required for remote push notifications and server
 gem "foreman"
@@ -21,7 +22,6 @@ gem "rvm-capistrano"
 group :assets do
   gem "sass-rails"
   gem "compass-rails"
-  gem "coffee-rails"
   gem "uglifier"
   gem "jquery-ui-rails"
 end
