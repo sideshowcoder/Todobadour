@@ -5,11 +5,7 @@ module ApplicationHelper
     base_name = "Todobadour"
     @title.nil? ? base_name : "#{base_name} : #{@title}"
   end
-  
-  def faye_url
-    "http://#{request.host}:9292/faye"
-  end
-  
+    
   # Broadcast a message via Faye
   def publish channel, event, &block
     broadcast channel, event, capture(&block)
