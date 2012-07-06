@@ -1,7 +1,10 @@
 Hi <%= @receiver %>,
 
 <%= @sender %> wants towants to organize <%= @list.title %> with you, 
-visit <%= link_to "", list_path(@list) %>
+visit <%= list_url(@list) %>
+
+Note from <%= @sender %>
+<%= @message %>
 
 Your Todobadour Team
 

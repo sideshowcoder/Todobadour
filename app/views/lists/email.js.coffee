@@ -1,4 +1,5 @@
 jQuery ($) ->
 	$('#sender').val ""
-	$('#receivers').val ""
+	$('#receiver').val ""
+	$('#message').val ""
 	

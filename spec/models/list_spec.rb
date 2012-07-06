@@ -1,4 +1,5 @@
 require 'spec_helper'
+require "faker"
 
 describe List do
   
@@ -66,10 +67,11 @@ describe List do
       @list = FactoryGirl.create :list
       @sender = "test@test.com"
       @receiver = "test2@test2.com"
+      @message = Faker::Lorem.paragraph 
     end
     
     it "should share itself via email" do
-      @list.share_via_email @sender, @receiver
+      @list.share_via_email @sender, @receiver, @message
       ActionMailer::Base.deliveries.last.to.should == [@receiver]
     end
     

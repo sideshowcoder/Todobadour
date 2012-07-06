@@ -18,8 +18,8 @@ class List < ActiveRecord::Base
     self.todos.rank(:position)
   end
   
-  def share_via_email sender, receiver
-    ShareMailer.share_list(self, sender, receiver).deliver
+  def share_via_email sender, receiver, message
+    ShareMailer.share_list(self, sender, receiver, message).deliver
   end
   
   private

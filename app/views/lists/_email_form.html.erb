@@ -2,15 +2,18 @@
 <%= form_for @list, :url => email_list_path, :method => :post, :remote => true do |f| %>
   <%= render "shared/error_messages", :object => f.object %>
   <div>
-    <%=label_tag 'You' %>
-    <%=text_field_tag 'sender'%>
+    <%= label_tag 'You' %>
+    <%= email_field_tag :sender %>
   </div>
   <div>
-    <%=label_tag 'Share with' %>
-    <%=email_field_tag 'receiver'%>
+    <%= label_tag 'Share with' %>
+    <%= email_field_tag :receiver %>
   </div>
   <div>
-    <%= submit_tag 'Send EMail' %>
+    <%= label_tag 'Message' %>
+    <%= text_area_tag :message %>
+  <div>
+    <%= f.submit 'Send EMail' %>
   </div>
 <% end %>
 </div>

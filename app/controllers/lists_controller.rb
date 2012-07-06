@@ -51,8 +51,9 @@ class ListsController < ApplicationController
 
     receiver = params[:receiver]
     sender = params[:sender]
+    message = params[:message]
     
-    @list.share_via_email sender, receiver
+    @list.share_via_email sender, receiver, message
     
     respond_with(@list) do |format|
       format.js

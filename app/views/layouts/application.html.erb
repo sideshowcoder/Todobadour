@@ -23,7 +23,9 @@
 <div style="clear:both;">
 <!-- Debug output in development -->
   <%= debug(params) %>
-<% elsif Rails.env.production? %>
+<% end %>
+
+<% if Rails.env.production? %>
 <!-- Analytics in production -->
   <%= javascript_tag "var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-33072228-1']);_gaq.push(['_trackPageview']);(function(){var b=document.createElement('script');b.type='text/javascript';b.async=true;b.src=('https:'==document.location.protocol?'https://ssl':'http://www')+'.google-analytics.com/ga.js';var a=document.getElementsByTagName('script')[0];a.parentNode.insertBefore(b,a)})();" %>
 <% end %>
