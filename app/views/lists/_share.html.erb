@@ -1,4 +1,10 @@
 <div>
   <%= render "email_form" %>
-  <%= link_to "tweet me", "http://twitter.com/home?status=Help me with #{@list.title} #{list_url(@list)} (via Todobadour)"%>
+
+  <%= link_to "Share on Twitter", "http://twitter.com/home?status=Help me with #{@list.title} #{list_url(@list)} (via Todobadour)"%>
+
+  <%= link_to "Share on Facebook", "http://www.facebook.com/sharer.php", { share_url: "#{list_url(@list)}&t=#{@list.title}", 
+                                                                                type: "icon_link",
+                                                                                name: "fb_share" } %>
+  <%= javascript_include_tag "http://static.ak.fbcdn.net/connect.php/js/FB.Share" %>                                                                             
 </div>
