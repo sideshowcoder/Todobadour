@@ -8,6 +8,7 @@ gem "best_in_place"
 gem "friendly_id"
 gem "ranked-model"
 gem "coffee-rails"
+gem "facebook_share"
 
 # required for remote push notifications and server
 gem "foreman"

@@ -80,6 +80,7 @@ GEM
     every_day_irb (1.2.2)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    facebook_share (0.0.6)
     factory_girl (3.5.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (3.5.0)
@@ -255,6 +256,7 @@ DEPENDENCIES
   capistrano
   coffee-rails
   compass-rails
+  facebook_share
   factory_girl_rails
   faker
   faye

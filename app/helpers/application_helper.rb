@@ -1,4 +1,6 @@
 module ApplicationHelper
+  # Load Facebook Share
+  include FacebookShare
   
   # Make the title configurable and available everywhere
   def title
