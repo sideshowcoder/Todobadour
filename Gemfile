@@ -44,6 +44,7 @@ end
 
 # Development Gems making life somewhat easier
 group :development do
+  gem "mailcatcher"
   gem "faker"
   gem "pry"
   gem "irbtools"

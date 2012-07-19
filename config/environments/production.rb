@@ -49,7 +49,17 @@ Todobadour::Application.configure do
   # config.assets.precompile += %w( search.js )
 
   # Disable delivery errors, bad email addresses will be ignored
-  # config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default :charset => "utf-8"
+  ActionMailer::Base.smtp_settings = {
+    :user_name => "sideshowcoder",
+    :password => "Jay2LNeX4R",
+    :domain => "sideshowcoder.com",
+    :address => "smtp.sendgrid.net",
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
+  }
   # Set a default url host for action mailer
   config.action_mailer.default_url_options = {
     :host => "todobadour.sideshowcoder.com",
