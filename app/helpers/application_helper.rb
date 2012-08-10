@@ -15,8 +15,12 @@ module ApplicationHelper
   
   def broadcast channel, event, message
     message = { channel: "/lists/#{channel}/#{event}", data: message, ext: { auth_token: FAYE_TOKEN } }
-    uri = URI.parse "http://#{request.host}:9292/faye" 
+    uri = URI.parse "http://#{host}:9292/faye" 
     Net::HTTP.post_form uri, :message => message.to_json
+  end
+  
+  def host
+    request.host.dup.force_encoding(Encoding::UTF_8)
   end
     
 end
