@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 # Gems required everywhere
-gem "rails", "3.2.6"
+gem "rails", "3.2.8"
 gem "mysql"
 gem "jquery-rails"
 gem "best_in_place"
@@ -9,6 +9,7 @@ gem "friendly_id"
 gem "ranked-model"
 gem "coffee-rails"
 gem "facebook_share"
+gem "resque"
 
 # required for remote push notifications and server
 gem "foreman"
