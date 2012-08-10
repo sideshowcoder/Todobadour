@@ -4,8 +4,7 @@ Todobadour::Application.routes.draw do
     member do
       post :email
     end
-    # Nested Todos with complete CRUD
-    resources :todos, :only => [:create, :show, :destroy, :update]
+    resources :todos, :only => [:create, :destroy, :update]
   end
     
   # Pages Controller
