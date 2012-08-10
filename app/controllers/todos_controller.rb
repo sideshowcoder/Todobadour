@@ -30,13 +30,15 @@ class TodosController < ApplicationController
   
   def update
     @todo = Todo.find params[:id]
-    @todo.update_attributes params[:todo]
-    
-    broadcast current_list.slug, "update", @todo.to_json
-    
-    respond_with(@todo) do |format|
-      format.html { redirect_to current_list }
-      format.json { respond_with_bip @todo }
+    respond_to do |format|
+      if @todo.update_attributes params[:todo]
+        broadcast current_list.slug, "update", @todo.to_json
+        format.html { redirect_to current_list }
+        format.json { respond_with_bip @todo }
+      else
+        format.js { render :partial => "shared/error_messages", :locals => { :object => @todo } }
+        format.html { redirect_to current_list }
+      end        
     end
   end
   

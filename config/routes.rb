@@ -6,6 +6,9 @@ Todobadour::Application.routes.draw do
     end
     resources :todos, :only => [:create, :destroy, :update]
   end
+  
+  # Make list respond to default url
+  match "/:id", :to => "lists#show"
     
   # Pages Controller
   get "pages/home"

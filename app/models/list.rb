@@ -26,7 +26,7 @@ class List < ActiveRecord::Base
     # generate a slug if none present before trying to validate
     def generate_and_add_slug
       if self.slug.nil? || self.slug.empty?
-        self.slug = Digest::SHA1.hexdigest([Time.now, rand].join) 
+        self.slug = SecureRandom.hex 16
       end
       self
     end                 
