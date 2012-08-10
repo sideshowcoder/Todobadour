@@ -23,6 +23,7 @@ role :db,  "todobadour.sideshowcoder.com", :primary => true        # Database Se
 
 after 'deploy:update', 'foreman:export'
 after 'deploy:update', 'foreman:restart'
+before 'foreman:restart', 'thin'
 
 namespace :foreman do
   desc "Export the Procfile to Ubuntu's upstart scripts"
@@ -45,6 +46,13 @@ namespace :foreman do
   desc "Stop the application services"
   task :stop, :roles => :app do
     sudo "stop #{application}"
+  end
+  
+  desc "Stop thin servers"
+  task :thin_stop, :roles => :app do
+    rake = fetch(:rake, 'rake')
+    rails_env = fetch(:rails_env, 'production')
+    run "cd '#{current_path}' && #{rake} thin:stop RAILS_ENV=#{rails_env}"
   end
 
   desc "Restart the application services"
