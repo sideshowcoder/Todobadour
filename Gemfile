@@ -10,6 +10,7 @@ gem "ranked-model"
 gem "coffee-rails"
 gem "facebook_share"
 gem "resque"
+gem "google-analytics-rails"
 
 # required for remote push notifications and server
 gem "foreman"

@@ -107,6 +107,7 @@ GEM
     fssm (0.2.9)
     g (1.6.0)
       ruby_gntp
+    google-analytics-rails (0.0.3)
     haml (3.1.6)
     highline (1.6.13)
     hike (1.2.1)
@@ -294,6 +295,7 @@ DEPENDENCIES
   faye
   foreman
   friendly_id
+  google-analytics-rails
   irbtools
   jquery-rails
   jquery-ui-rails

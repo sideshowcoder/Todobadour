@@ -57,6 +57,9 @@ Todobadour::Application.configure do
     :host => "todobadour.sideshowcoder.com",
   }
   
+  # Configure Google Analytics
+  GA.tracker = "UA-33072228-1"
+  
   # Enable threaded mode
   # config.threadsafe!
 
