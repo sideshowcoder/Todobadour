@@ -1,6 +1,7 @@
 <% if object.errors.any? %>
   <% object.errors.full_messages.each do |msg| %>
-    notice = "<div>#{"<%= msg %>"}</div>"
-    $( notice ).purr fadeInSpeed: 200, fadeOutSpeed: 2000, removeTimer: 5000
+    jQuery ($) ->
+      notice = "<div>#{"<%= msg %>"}</div>"
+      $( notice ).purr fadeInSpeed: 200, fadeOutSpeed: 2000, removeTimer: 5000
   <% end %>                     
 <% end %>
