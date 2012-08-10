@@ -1,5 +1,5 @@
 class ShareMailer < ActionMailer::Base
-  default :from => "norepley@todobadour.sideshowcoder.com"
+  default :from => "noreply@todobadour.sideshowcoder.com"
   
   def share_list list, sender, receiver, message
     @list = list

@@ -24,7 +24,7 @@ describe ShareMailer do
  
     #ensure that the sender is correct
     it 'renders the sender email' do
-      mail.from.should == ['norepley@todobadour.sideshowcoder.com']
+      mail.from.should == ['noreply@todobadour.sideshowcoder.com']
     end
  
     #ensure that the @name variable appears in the email body
