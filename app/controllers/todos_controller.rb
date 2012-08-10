@@ -36,8 +36,8 @@ class TodosController < ApplicationController
         format.html { redirect_to current_list }
         format.json { respond_with_bip @todo }
       else
-        format.js { render :partial => "shared/error_messages", :locals => { :object => @todo } }
         format.html { redirect_to current_list }
+        format.json { render :json => @todo.errors.full_messages, :status => :unprocessable_entity }
       end        
     end
   end
