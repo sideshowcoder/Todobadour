@@ -10,7 +10,7 @@ class ListsController < ApplicationController
   
   def create
     @list = List.new params[:list]
-    if @list.save! params[:list]
+    if @list.save params[:list]
       respond_with @list
     else
       redirect_to root_path
@@ -38,11 +38,14 @@ class ListsController < ApplicationController
     end
     
     # save other updates
-    @list.update_attributes list
-    respond_with(@list) do |format|
-      format.js
-      format.html { render @list }
-      format.json { respond_with_bip @list }
+    respond_to do |format|
+      if @list.update_attributes list
+        format.html { render @list }
+        format.json { respond_with_bip @list }
+      else
+        format.html { render @list }
+        format.json { render :json => @list.errors.full_messages, :status => :unprocessable_entity }
+      end
     end
   end
   
