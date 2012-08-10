@@ -2,22 +2,19 @@ class TodosController < ApplicationController
   respond_to :html, :js, :json
     
   include ApplicationHelper
-  
-  def show
-    @list = current_list
-    @todo = Todo.find params[:id]
-  end
-  
+    
   def create
     @list = current_list
     @todo = @list.todos.build params[:todo]
     @todo.position = RankedModel::MIN_RANK_VALUE
-    if @todo.save
-      flash[:success] = "Todo created"
-    end
-    respond_with(@todo) do |format|
-      format.js
-      format.html { redirect_to current_list }
+    respond_to do |format|
+      if @todo.save
+        format.js
+        format.html { redirect_to current_list }
+      else
+        format.js { render :partial => "shared/error_messages", :locals => { :object => @todo } }
+        format.html { redirect_to current_list }
+      end
     end
   end
   
