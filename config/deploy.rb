@@ -23,7 +23,7 @@ role :db,  "todobadour.sideshowcoder.com", :primary => true        # Database Se
 
 after 'deploy:update', 'foreman:export'
 after 'deploy:update', 'foreman:restart'
-before 'foreman:restart', 'thin'
+before 'foreman:restart', 'foreman:thin_stop'
 
 namespace :foreman do
   desc "Export the Procfile to Ubuntu's upstart scripts"
