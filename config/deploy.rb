@@ -1,5 +1,4 @@
 require "bundler/capistrano"
-require "rvm/capistrano"
 
 default_run_options[:pty] = true
 
@@ -8,9 +7,6 @@ set :repository,  "git@github.com:sideshowcoder/Todobadour.git"
 set :branch, "master"
 
 set :scm, :git
-
-set :rvm_ruby_string, "1.9.3"
-set :rvm_type, :system
 
 set :user, "deployer"
 set :use_sudo, false
@@ -24,6 +20,13 @@ role :db,  "todobadour.sideshowcoder.com", :primary => true        # Database Se
 after 'deploy:update', 'foreman:export'
 after 'deploy:update', 'foreman:restart'
 before 'foreman:restart', 'foreman:thin_stop'
+
+# setup rbenv
+set :default_environment, {
+  "PATH" => "/home/deployer/.rbenv/shims:/home/deployer/.rbenv/bin:$PATH"
+}
+# make rbenv aware of the .rbenv-version
+set :bundle_flags, "--deployment --quiet --binstubs --shebang ruby-local-exec"
 
 namespace :foreman do
   desc "Export the Procfile to Ubuntu's upstart scripts"
