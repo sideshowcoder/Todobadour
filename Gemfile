@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 # Gems required everywhere
 gem "rails", "3.2.8"
-gem "mysql"
+gem "mysql2"
 gem "jquery-rails"
 gem "best_in_place"
 gem "friendly_id"
@@ -19,7 +19,6 @@ gem "faye"
 
 # deployment
 gem "capistrano"
-gem "rvm-capistrano"
 
 # Gems used only for assets production assets are precompieled and therefor this is not needed
 group :assets do
@@ -38,16 +37,14 @@ end
 # Database for testing
 group :test do
   gem "autotest"
-  gem "autotest-growl"
   gem "autotest-fsevent"
   gem "factory_girl_rails"
   gem "sqlite3"
+  gem "spork-rails"
 end
 
 # Development Gems making life somewhat easier
 group :development do
   gem "mailcatcher"
   gem "faker"
-  gem "pry"
-  gem "irbtools"
 end

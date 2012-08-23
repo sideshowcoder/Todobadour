@@ -1,5 +1,5 @@
 development:
-  adapter: mysql
+  adapter: mysql2
   username: dev
   password: gyiy3skr
   host: localhost
@@ -14,7 +14,7 @@ test:
   
 # Production 
 production:
-  adapter: mysql
+  adapter: mysql2
   username: tdbd
   password: fkaqr90ß13u780r413qhjfnqiopFIN
   host: localhost

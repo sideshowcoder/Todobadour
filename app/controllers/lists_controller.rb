@@ -40,10 +40,10 @@ class ListsController < ApplicationController
     # save other updates
     respond_to do |format|
       if @list.update_attributes list
-        format.html { render @list }
+        format.html { redirect_to @list }
         format.json { respond_with_bip @list }
       else
-        format.html { render @list }
+        format.html { redirect_to @list, :notice => "update list failed" }
         format.json { render :json => @list.errors.full_messages, :status => :unprocessable_entity }
       end
     end

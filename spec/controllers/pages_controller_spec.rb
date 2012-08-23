@@ -17,7 +17,7 @@ describe PagesController do
   describe "GET 'home'" do
     before(:each) do
       @list = FactoryGirl.create :list
-      request.cookies[:last_list] = @list
+      request.cookies[:last_list] = @list.slug
     end
     
     it "returns http success" do
