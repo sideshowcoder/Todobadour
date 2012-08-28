@@ -40,7 +40,6 @@ group :test do
   gem "autotest-fsevent"
   gem "factory_girl_rails"
   gem "sqlite3"
-  gem "spork-rails"
 end
 
 # Development Gems making life somewhat easier
