@@ -30,7 +30,7 @@ class TodosController < ApplicationController
     @todo = Todo.find params[:id]
     respond_to do |format|
       if @todo.update_attributes params[:todo]
-        FayeMessage.new.publish("update", current_list.slug, @todo.json)
+        FayeMessage.new.publish("update", current_list.slug, @todo.to_json)
         format.html { redirect_to current_list }
         format.json { respond_with_bip @todo }
       else

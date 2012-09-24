@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe TodosController do
   render_views
+  use_vcr_cassette "todos_controller"
     
   describe "POST 'create'" do
 
@@ -69,12 +70,12 @@ describe TodosController do
     
     describe "success" do
   
-      it "should create a todo" do
+      it "should create a todo", :vcr do
         put :update, :list_id => @list, :id => @todo,  :todo => @attr
         Todo.find(@todo).title.should == @attr[:title]
       end
       
-      it "should render the list page" do
+      it "should render the list page", :vcr do
         put :update, :list_id => @list, :id => @todo,  :todo => @attr
         response.should redirect_to @list
       end
