@@ -7,20 +7,20 @@ module ApplicationHelper
     base_name = "Todobadour"
     @title.nil? ? base_name : "#{base_name} : #{@title}"
   end
-    
-  # Broadcast a message via Faye
-  def publish channel, event, &block
-    broadcast channel, event, capture(&block)
+
+  # publish a message given as a block
+  def publish(channel, event, &block)
+    FayeMessage.new.publish(event, channel, capture(&block))
   end
-  
-  def broadcast channel, event, message
-    message = { channel: "/lists/#{channel}/#{event}", data: message, ext: { auth_token: FAYE_TOKEN } }
-    uri = URI.parse "http://#{host}:9292/faye" 
-    Net::HTTP.post_form uri, :message => message.to_json
+
+  # js url to include the faye js
+  def faye_js
+    FayeMessage.new.faye_js_url
   end
-  
-  def host
-    request.host.dup.force_encoding(Encoding::UTF_8)
+
+  def faye_server
+    FayeMessage.new.faye_server
   end
+
     
 end

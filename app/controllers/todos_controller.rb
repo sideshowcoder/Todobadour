@@ -1,8 +1,6 @@
 class TodosController < ApplicationController
   respond_to :html, :js, :json
     
-  include ApplicationHelper
-    
   def create
     @list = current_list
     @todo = @list.todos.build params[:todo]
@@ -32,7 +30,7 @@ class TodosController < ApplicationController
     @todo = Todo.find params[:id]
     respond_to do |format|
       if @todo.update_attributes params[:todo]
-        broadcast current_list.slug, "update", @todo.to_json
+        FayeMessage.new.publish("update", current_list.slug, @todo.json)
         format.html { redirect_to current_list }
         format.json { respond_with_bip @todo }
       else

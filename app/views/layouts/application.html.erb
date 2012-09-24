@@ -4,8 +4,8 @@
   <title><%= title %></title>
   <%= render "layouts/iefixes" %>
   <%= stylesheet_link_tag "application", :media => "all" %>
-  <%= javascript_include_tag "application", "#{FAYE_URL}.js" %>
-  <%= javascript_tag "var FAYE_URL = '#{FAYE_URL}';" %>
+  <%= javascript_include_tag "application", "#{faye_js}" %>
+  <%= javascript_tag "var FAYE_URL = '#{faye_server}';" %>
   <%= csrf_meta_tags %>
 </head>
 <body>

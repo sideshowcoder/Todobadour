@@ -1,0 +1,14 @@
+test:
+  token: MbDkX0Ahqe5dFkiahWDph9FXdGvZmw0L1pYtfEUNapuF7Mb0JVZ4vDLpFnxIEyg
+  host: localhost
+  port: 9292
+
+development:
+  token: MbDkX0Ahqe5dFkiahWDph9FXdGvZmw0L1pYtfEUNapuF7Mb0JVZ4vDLpFnxIEyg
+  host: localhost
+  port: 9292
+
+production:
+  token: MbDkX0Ahqe5dFkiahWDph9FXdGvZmw0L1pYtfEUNapuF7Mb0JVZ4vDLpFnxIEyg
+  host: todobadour-push.heroku.com
+  port: 80
