@@ -1,1 +1,2 @@
+mail: bundle exec mailcatcher
 web: bundle exec rails server thin -p $PORT -e $RACK_ENV

@@ -19,7 +19,7 @@ class List < ActiveRecord::Base
   end
   
   def share_via_email sender, receiver, message
-    Resque.enqueue ShareMailSender, self.id, sender, receiver, message
+    ShareMailer.share_list(self, sender, receiver, message).deliver
   end
   
   private

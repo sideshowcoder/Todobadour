@@ -1,9 +1,11 @@
+# Use postgres for development since heroku uses it as well
 development:
-  adapter: mysql2
-  username: dev
-  password: gyiy3skr
-  host: localhost
+  adapter: postgresql
+  username: todobadour
+  password: 
+  encoding: unicode
   database: todobadour_development
+  pool: 5
 
 # Test uses sqlite for simplicity sake
 test:
@@ -11,11 +13,5 @@ test:
   database: db/test.sqlite3
   pool: 5
   timeout: 5000
-  
-# Production 
-production:
-  adapter: mysql2
-  username: tdbd
-  password: fkaqr90ß13u780r413qhjfnqiopFIN
-  host: localhost
-  database: todobadour
+
+# No production, heroku sets this up automatically
