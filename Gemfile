@@ -26,16 +26,16 @@ group :assets do
 end
 
 # Gems needed for testing and development
-group :test, :development do
+group :test, :development, :ci do
   gem "rspec-rails"
   gem "webrat"
   gem "vcr"
+  gem "factory_girl_rails"
   gem "webmock", require: false
 end
 
 # Database for testing
 group :test do
-  gem "factory_girl_rails"
   gem "sqlite3"
 end
 

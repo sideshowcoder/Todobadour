@@ -9,9 +9,11 @@ development:
 
 # Test uses sqlite for simplicity sake
 test:
-  adapter: sqlite3
-  database: db/test.sqlite3
+  adapter: postgresql
+  username: todobadour
+  password: 
+  encoding: unicode
+  database: todobadour_testing
   pool: 5
-  timeout: 5000
 
 # No production, heroku sets this up automatically
