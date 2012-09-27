@@ -11,10 +11,11 @@ gem "coffee-rails"
 gem "facebook_share"
 gem "google-analytics-rails"
 
-# required for remote push notifications and server
+# required server hosting on heroku
 gem "foreman"
 gem "thin"
-gem "faye"
+# needed by ci
+gem "therubyracer"
 
 # Gems used only for assets production assets are precompieled and therefor this is not needed
 group :assets do
