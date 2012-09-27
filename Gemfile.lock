@@ -205,7 +205,6 @@ DEPENDENCIES
   ranked-model
   rspec-rails
   sass-rails
-  sqlite3
   therubyracer
   thin
   uglifier

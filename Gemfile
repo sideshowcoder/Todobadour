@@ -14,8 +14,6 @@ gem "google-analytics-rails"
 # required server hosting on heroku
 gem "foreman"
 gem "thin"
-# needed by ci
-gem "therubyracer"
 
 # Gems used only for assets production assets are precompieled and therefor this is not needed
 group :assets do
@@ -27,20 +25,16 @@ end
 
 # Gems needed for testing and development
 group :test, :development, :ci do
+  gem "therubyracer"
   gem "rspec-rails"
   gem "webrat"
   gem "vcr"
+  gem "faker"
   gem "factory_girl_rails"
   gem "webmock", require: false
-end
-
-# Database for testing
-group :test do
-  gem "sqlite3"
 end
 
 # Development Gems making life somewhat easier
 group :development do
   gem "mailcatcher"
-  gem "faker"
 end
