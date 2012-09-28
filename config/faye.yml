@@ -10,5 +10,5 @@ development:
 
 production:
   token: MbDkX0Ahqe5dFkiahWDph9FXdGvZmw0L1pYtfEUNapuF7Mb0JVZ4vDLpFnxIEyg
-  host: todobadour-push.heroku.com
+  host: todobadour-push.herokuapp.com
   port: 80
