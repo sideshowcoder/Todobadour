@@ -3,9 +3,18 @@ module ApplicationHelper
   include FacebookShare
   
   # Make the title configurable and available everywhere
-  def title
-    base_name = "Todobadour"
-    @title.nil? ? base_name : "#{base_name} : #{@title}"
+  def page_title
+    title = content_for?(:title) ? " - #{content_for(:title)}" : ""
+    "Todobadour#{title}"
+  end
+
+  def page_heading(text)
+    content_tag(:h1, content_for(:title){ text })
+  end
+
+  # check if we passed a list if not create a new one
+  def list
+    @list.nil? ? List.new : @list
   end
 
   # publish a message given as a block

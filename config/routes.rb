@@ -7,12 +7,7 @@ Todobadour::Application.routes.draw do
     resources :todos, :only => [:create, :destroy, :update]
   end
     
-  # Pages Controller
-  get "pages/home"
-  get "pages/about"
-
   # Static Pages
-  match "/about", :to => 'pages#about'
-  root :to => 'pages#home'  
-  
+  root to: "high_voltage/pages#show", id: "home"
+
 end

@@ -10,6 +10,7 @@ gem "ranked-model"
 gem "coffee-rails"
 gem "facebook_share"
 gem "google-analytics-rails"
+gem "high_voltage"
 
 # required server hosting on heroku
 gem "foreman"
@@ -24,14 +25,19 @@ group :assets do
 end
 
 # Gems needed for testing and development
-group :test, :development, :ci do
+group :test, :development do
   gem "therubyracer"
   gem "rspec-rails"
-  gem "webrat"
+  gem "capybara"
   gem "vcr"
   gem "faker"
   gem "factory_girl_rails"
   gem "webmock", require: false
+end
+
+group :test do  
+  gem "cucumber-rails", require: false
+  gem "database_cleaner"
 end
 
 # Development Gems making life somewhat easier

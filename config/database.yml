@@ -7,13 +7,18 @@ development:
   database: todobadour_development
   pool: 5
 
-# Test uses sqlite for simplicity sake
-test:
+# Test database used by rspec and cucumber
+test: &test
   adapter: postgresql
   username: todobadour
   password: 
   encoding: unicode
   database: todobadour_testing
   pool: 5
+#
+# Cucumber database is the same as test
+cucumber:
+  <<: *test
 
 # No production, heroku sets this up automatically
+
