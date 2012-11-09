@@ -14,3 +14,6 @@ webrat.log
 /log/*.log
 /tmp
 .rvmrc
+
+# ignore foreman environment
+.env
