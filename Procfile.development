@@ -1,2 +1,3 @@
 mail: bundle exec mailcatcher
+push: subcontract --chdir $PUSH_PATH --signal INT -- env BUNDLE_GEMFILE=$PUSH_PATH/Gemfile bundle exec rackup config.ru -s thin -E $PUSH_RACK_ENV -p $PUSH_PORT
 web: bundle exec rails server thin -p $PORT -e $RACK_ENV

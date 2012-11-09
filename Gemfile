@@ -14,6 +14,7 @@ gem "high_voltage"
 
 # required server hosting on heroku
 gem "foreman"
+gem "subcontractor"
 gem "thin"
 
 # Gems used only for assets production assets are precompieled and therefor this is not needed
