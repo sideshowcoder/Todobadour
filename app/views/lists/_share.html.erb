@@ -4,6 +4,8 @@
   <%= link_to "Share on Twitter", "http://twitter.com/home?status=Help me with #{@list.title} #{list_url(@list)} (via Todobadour)"%>
 
   <%= link_to 'Share on Facebook', '#', :class => "fb_share"  %>
-  <%= facebook_share_once %>
+  <% if Rails.env.production? %>
+    <%= facebook_share_once %>
+  <% end %>
 
 </div>

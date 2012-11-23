@@ -21,13 +21,12 @@
 
 <% if Rails.env.development? %>
 <div style="clear:both;">
-<!-- Debug output in development -->
   <%= debug(params) %>
 <% end %>
 
 <% if Rails.env.production? %>
-<!-- Analytics in production -->
   <% analytics_init %>
+  <%= facebook_share_once %>
 <% end %>
 
 </div>
