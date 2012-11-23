@@ -1,6 +1,8 @@
-// Load Compass
-@import "compass/reset";
-@import "compass/css3";
+//= require_self
+
+// Load Bourbon and Neat
+@import "bourbon";
+@import "neat";
 
 // Load styles
-@import "list";
+@import "main";

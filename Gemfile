@@ -11,6 +11,8 @@ gem "coffee-rails"
 gem "facebook_share"
 gem "google-analytics-rails"
 gem "high_voltage"
+gem "bourbon"
+gem "neat"
 
 # required server hosting on heroku
 gem "foreman"
