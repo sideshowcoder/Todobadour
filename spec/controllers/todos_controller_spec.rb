@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe TodosController do
-  render_views
   use_vcr_cassette "todos_controller"
     
   describe "POST 'create'" do
@@ -43,7 +42,6 @@ describe TodosController do
     
   end
   
-  # FIXME this is not working since faye is not responding!
   describe "PUT 'update'" do
   
     before(:each) do

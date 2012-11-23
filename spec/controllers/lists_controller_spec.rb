@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe ListsController do
-  render_views
   
   describe "PUT 'update'" do
     
