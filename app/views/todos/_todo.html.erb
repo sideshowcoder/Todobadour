@@ -1,4 +1,4 @@
-<li id='todo_<%= todo.id %>'>  
+<li id='todo-<%= todo.id %>' class='<%= todo.done? ? "done" : "not-done" %>'>  
   <span class='title'>
     <%= best_in_place todo, :title, :path => list_todo_path(@list, todo) %>
   </span>

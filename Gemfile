@@ -30,6 +30,7 @@ group :test, :development do
   gem "therubyracer"
   gem "rspec-rails"
   gem "capybara"
+  gem "poltergeist"
   gem "vcr"
   gem "faker"
   gem "factory_girl_rails"
