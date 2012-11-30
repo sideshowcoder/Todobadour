@@ -11,6 +11,7 @@ class FayeMessage
 
   def publish(event, channel, message)
     message = { channel: "/#{channel}/#{event}", data: message, ext: { auth_token: config[:token] } }
+    p message
     Net::HTTP.post_form(faye_uri, message: message.to_json)    
   end
 

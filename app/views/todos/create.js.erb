@@ -1,0 +1,8 @@
+<% publish @list.slug, "add" do %>
+	<%= render @todo %>
+<% end %>
+
+(function($){
+  $(function(){ $('#todo_title').val(''); });
+})(jQuery);
+

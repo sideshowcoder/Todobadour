@@ -1,0 +1,4 @@
+#!/bin/bash
+
+set -e
+foreman start -f Procfile.development
