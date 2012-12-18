@@ -30,6 +30,7 @@ end
 # Gems needed for testing and development
 group :test, :development do
   gem "therubyracer"
+  gem "pry"
   gem "rspec-rails"
   gem "capybara"
   gem "poltergeist"
