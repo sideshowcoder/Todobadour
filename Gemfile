@@ -33,13 +33,11 @@ group :test, :development do
   gem "rspec-rails"
   gem "capybara"
   gem "poltergeist"
-  gem "vcr"
   gem "faker"
   gem "factory_girl_rails"
-  gem "webmock", require: false
 end
 
-group :test do  
+group :test do
   gem "cucumber-rails", require: false
   gem "database_cleaner"
 end
