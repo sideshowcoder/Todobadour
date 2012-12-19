@@ -20,20 +20,26 @@ RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
-  # If you're not using ActiveRecord, or you'd prefer not to run each of your
-  # examples within a transaction, remove the following line or assign false
-  # instead of true.
-  config.use_transactional_fixtures = true
-
   # If true, the base class of anonymous controllers will be inferred
   # automatically. This will be the default behavior in future versions of
   # rspec-rails.
   config.infer_base_class_for_anonymous_controllers = false
 
-  config.before(:suite, :type => :request) do
+  # Javascript test don't work with transactional fixtures so we switin this case
+  # truncation in this case
+  config.before(:each) do
     config.use_transactional_fixtures = false
+
+    if Capybara.current_driver == :rack_test
+      DatabaseCleaner.strategy = :transaction
+    else
+      DatabaseCleaner.strategy = :truncation
+    end
+    DatabaseCleaner.start
   end
 
-  Capybara.javascript_driver = :poltergeist
+  config.after do
+    DatabaseCleaner.clean
+  end
 
 end
