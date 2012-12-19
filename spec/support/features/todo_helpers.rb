@@ -1,0 +1,9 @@
+module Features
+  module TodoHelpers
+    def create_todo_with_title(title)
+      visit list_path(FactoryGirl.create(:list))
+      fill_in "todo_title", with: title
+      click_on "Add"
+    end
+  end
+end
