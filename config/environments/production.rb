@@ -64,10 +64,10 @@ Todobadour::Application.configure do
   config.action_mailer.default_url_options = {
     :host => "todobadour.herokuapp.com",
   }
-  
+
   # Configure Google Analytics
-  GA.tracker = "UA-33072228-1"
-  
+  GA.tracker = "UA-37293522-1"
+
   # Enable threaded mode
   # config.threadsafe!
 
