@@ -1,0 +1,20 @@
+.list-create-short {
+  @include span-columns(6 of 6);
+  margin: 30px 0;
+
+  #{$all-text-inputs} {
+    @include span-columns(6 of 6);
+    border: none;
+    border-bottom: 1px dashed;
+    &:focus {
+      outline: none;
+    }
+    font-size: 30px;
+    margin: 20px 0;
+  }
+
+  .button {
+    @include span-columns(6 of 6);
+    font-size: 24px;
+  }
+}

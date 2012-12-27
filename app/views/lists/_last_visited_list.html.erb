@@ -1,5 +1,3 @@
 <% unless last_list.nil? %>
-  <div>
-    Go back to <%= link_to last_list.title, last_list %>
-  </div>
+  <%= link_to "Check your last list #{last_list.title}", last_list %>
 <% end %>

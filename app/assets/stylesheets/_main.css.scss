@@ -1,23 +1,52 @@
-.button {
-  @include button;
+body {
+  font-family: $lucida-grande;
 }
 
-body {
-  @include outer-container;
+a {
+  color: #909090;
+  text-decoration: none;
+  @include transition (color 0.5s ease-in 0s);
+  &:hover {
+    color: #ff5533;
+  }
 }
 
 .container {
+  @include outer-container;
   @include span-columns(6);
   @include shift(3);
+  color: #444;
+  font-size: 18px;
 }
 
-.purr {
-  position: fixed;
-  top: 30px;
-  right: 100px;
-  width: 250px;
-  padding: 20px;
-  background-color: #FCC;
-  border: solid 2px #C66;
-  &:first-letter { text-transform: uppercase; }
+.content {
+  padding: 50px 0;
 }
+
+.button {
+  @include button(#444);
+}
+
+.header {
+  border-bottom: 1px solid;
+  z-index: 100;
+  @include background-image(linear-gradient(rgba(255,255,255,1) 75%, rgba(255,255,255,0.6)));
+  @include span-columns(6);
+  position: fixed;
+  top: 0;
+  height: 50px;
+  line-height: 50px;
+}
+
+.footer {
+  border-top: 1px solid;
+  z-index: 100;
+  @include background-image(linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,1) 25%));
+  @include span-columns(6);
+  position: fixed;
+  bottom: 0;
+  height: 50px;
+  line-height: 50px;
+}
+
+
