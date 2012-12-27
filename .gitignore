@@ -14,6 +14,7 @@ webrat.log
 /log/*.log
 /tmp
 .rvmrc
+.pry_history
 
 # ignore foreman environment
 .env
