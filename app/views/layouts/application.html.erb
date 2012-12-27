@@ -25,7 +25,7 @@
 <% end %>
 
 <% if Rails.env.production? %>
-  <% analytics_init %>
+  <%= analytics_init %>
   <%= facebook_share_once %>
 <% end %>
 
