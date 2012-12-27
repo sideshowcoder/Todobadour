@@ -15,8 +15,6 @@ gem "bourbon"
 gem "neat"
 
 # required server hosting on heroku
-gem "foreman"
-gem "subcontractor"
 gem "thin"
 
 # Gems used only for assets production assets are precompieled and therefor this is not needed
@@ -42,7 +40,8 @@ group :test do
   gem "database_cleaner"
 end
 
-# Development Gems making life somewhat easier
 group :development do
   gem "mailcatcher"
+  gem "foreman"
+  gem "subcontractor"
 end
