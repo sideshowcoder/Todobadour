@@ -14,7 +14,7 @@
     };
 
     List.prototype.initSortable = function(){
-      that = this;
+      var that = this;
       $(that.htmlElementId).sortable({
         update: function(event, ui){
           $.ajax({
@@ -44,6 +44,7 @@
     };
 
     List.prototype.updateTodo = function(data){
+      var d, done, doneClass, tags;
       try {
         d = JSON.parse(data);
         d.done ? doneClass = "done" : doneClass = "not-done";
@@ -55,7 +56,6 @@
         this.initBestInPlace();
         this.initSortable();
       } catch(err) {
-        console.log(err);
         // JSON.parse might throw an error if so inform the user to refresh
         alert("Something went wrong :(! Please refresh the page");
       }
