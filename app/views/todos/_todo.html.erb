@@ -1,12 +1,20 @@
 <li id='todo-<%= todo.id %>' class='<%= todo.done? ? "done" : "not-done" %>'>
+  <span class="edit-icon">
+    <%= image_tag("wrench_16x16.png") %>
+  </span>
   <span class='title'>
     <%= best_in_place todo, :title, :path => list_todo_path(@list, todo) %>
   </span>
-  <span class='done'>
-    <%= best_in_place todo, :done, :type => :checkbox,
-                                   :collection => ["✓", "☓"],
-                                   :path => list_todo_path(@list, todo) %>
+  <span class="manage">
+    <span class='done'>
+      <%= best_in_place todo, :done, :type => :checkbox,
+                                     :collection => ["✓", "☓"],
+                                     :path => list_todo_path(@list, todo) %>
+    </span>
+    <span class="trash-link">
+      <%= link_to image_tag("trash_stroke_16x16.png", alt: "delete"),
+        [@list, todo], method: :delete, remote: true, title: todo.title %>
+    </span>
   </span>
-  <%= link_to image_tag("trash_stroke_16x16.png", alt: "delete"),
-              [@list, todo], method: :delete, remote: true, title: todo.title %>
+
 </li>

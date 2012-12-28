@@ -1,13 +1,14 @@
 <%= javascript_tag "var LIST_ID = '#{@list.slug}';" %>
 
-<div>
-<h1><%= best_in_place @list, :title %></h1>
-<h3><%= best_in_place @list, :description, :nil => "Click me to add description" %></h3>
-
-<div>
-<%= link_to :delete, @list, :method => :delete,
-                            :data => { :confirm => "Are you sure?" },
-                            :title => @list.title %>
+<div class="list-header">
+  <div class="edit-icon">
+    <%= image_tag("wrench_24x24.png") %>
+  </div>
+  <h1><%= best_in_place @list, :title %></h1>
+  <div class="trash-link">
+    <%= link_to image_tag("trash_stroke_24x24.png", alt: "delete"),
+      @list, method: :delete, data: { confirm: "Are you sure?" }, title: @list.title %>
+  </div>
 </div>
 
 <%= render "share"%>
@@ -18,4 +19,4 @@
   <ul id="todo-list"></ul>
 <% else %>
   <%= render :partial => "todolist", :locals => { :todos => @list.ordered_todos }%>
-<% end %>  
+<% end %>

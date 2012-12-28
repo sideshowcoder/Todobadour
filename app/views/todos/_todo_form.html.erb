@@ -2,7 +2,7 @@
 <%= form_for [@list, @todo], :remote => true do |f| %>
   <%= render "shared/error_messages", :object => f.object %>
   <div>
-    <%= f.text_field :title, class: "submittable" %>
+    <%= f.text_field :title, placeholder: "New todo", class: "submittable" %>
   </div>
   <div>
     <%= f.submit "Add", type: :image, src: "/assets/plus_alt_24x24.png", class: "add" %>

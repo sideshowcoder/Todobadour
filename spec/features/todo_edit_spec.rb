@@ -24,7 +24,9 @@ feature "edit todo" do
   scenario "change title to invalid title"
 
   def toggle_done_for_todo(todo)
-    page.find("#todo-#{todo.id} span.done").click
+    # need to click on this element first to trigger hover
+    page.find("#todo-#{todo.id}").click
+    page.find("#best_in_place_todo_#{todo.id}_done").click
     sleep 1
   end
 

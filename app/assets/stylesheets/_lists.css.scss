@@ -14,9 +14,68 @@
   }
 }
 
-#todo-list {
-  @include span-columns(6 of 6);
-  li.done {
-    color: #ddd;
+.list-header {
+  @include span-columns(12);
+  h1 {
+    font-size: 30px;
+    font-weight: bold;
+    @include span-columns(10);
+    #{$all-text-inputs} {
+      font-size: 30px;
+      font-weight: bold;
+    }
   }
+  .trash-link {
+    @include span-columns(1);
+    padding: 25px 0 0 0;
+    display: none;
+  }
+  .edit-icon {
+    @include span-columns(1);
+    @include shift(-1);
+    padding: 25px 0 0 0;
+    display: none;
+  }
+  &:hover {
+    .trash-link {
+      display: block;
+    }
+    .edit-icon {
+      display: block;
+    }
+  }
+}
+
+#todo-list {
+  @include span-columns(12);
+  padding: 10px 0 50px 0;
+  li {
+    @include span-columns(12);
+    margin: 3px 3px;
+    padding: 8px 0;
+    &.done {
+      color: #ddd;
+    }
+    .edit-icon {
+      @include span-columns(1);
+      @include shift(-1);
+      display: none;
+    }
+    .title {
+      @include span-columns(9);
+    }
+    .manage {
+      @include span-columns(2);
+      display: none;
+    }
+    &:hover {
+      .edit-icon {
+        display: block
+      }
+      .manage {
+        display: block
+      }
+    }
+  }
+  list-style-type: none;
 }
