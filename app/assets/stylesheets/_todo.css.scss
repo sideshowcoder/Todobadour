@@ -1,0 +1,11 @@
+#todo-form {
+  input {
+    @include span-columns(4 of 6);
+  }
+  input.add {
+    @include span-columns(1 of 6);
+    @include shift(1);
+    width: 24px;
+    height: 24px;
+  }
+}
