@@ -4,11 +4,6 @@
 
   #{$all-text-inputs} {
     @include span-columns(6 of 6);
-    border: none;
-    border-bottom: 1px dashed;
-    &:focus {
-      outline: none;
-    }
     font-size: 30px;
     margin: 20px 0;
   }

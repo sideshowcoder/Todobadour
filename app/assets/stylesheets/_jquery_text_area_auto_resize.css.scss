@@ -1,0 +1,21 @@
+.txtstuff {
+  resize: none;
+  overflow: hidden;
+}
+
+.hiddendiv {
+  display: none;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word; /* future version of deprecated 'word-wrap' */
+}
+
+.common {
+  overflow: hidden;
+  min-height: 24px;
+  font-size: 18px;
+}
+
+.lbr {
+  line-height: 3px;
+}

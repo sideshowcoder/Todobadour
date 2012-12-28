@@ -11,6 +11,15 @@ a {
   }
 }
 
+#{$all-text-inputs} {
+  font-size: 18px;
+  border: none;
+  border-bottom: 1px dashed;
+  &:focus {
+    outline: none;
+  }
+}
+
 .container {
   @include outer-container;
   @include span-columns(6);

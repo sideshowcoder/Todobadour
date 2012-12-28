@@ -1,4 +1,4 @@
-<div>
+<div id="email_share_form">
 <%= form_for @list, :url => email_list_path, :method => :post, :remote => true do |f| %>
   <%= render "shared/error_messages", :object => f.object %>
   <div>
@@ -10,10 +10,10 @@
     <%= email_field_tag :receiver %>
   </div>
   <div>
-    <%= label_tag 'Message' %>
-    <%= text_area_tag :message %>
+    <%= text_area_tag :message, "I need some help", rows: 1, class: "common" %>
+  </div>
   <div>
-    <%= f.submit 'Send EMail' %>
+    <%= f.submit 'Send EMail', class: ["send_email", "button"] %>
   </div>
 <% end %>
 </div>

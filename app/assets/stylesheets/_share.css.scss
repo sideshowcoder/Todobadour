@@ -1,0 +1,31 @@
+.share {
+  @include span-columns(6 of 6);
+  @include outer-container;
+}
+
+#email_share_form {
+  margin: 20px 0;
+  label {
+    @include span-columns(3 of 6);
+  }
+  input {
+    @include span-columns(3 of 6);
+  }
+  textarea {
+    margin: 10px 0 ;
+    @include span-columns(6 of 6);
+    border: none;
+    border-bottom: 1px dashed;
+    font-size: 18px;
+    &:focus {
+      outline: none;
+    }
+  }
+  .send_email {
+    margin: 10px 0;
+    @include span-columns(3 of 6);
+    @include shift(3);
+  }
+  /*display:none;*/
+
+}

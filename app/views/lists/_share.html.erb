@@ -1,8 +1,11 @@
-<div>
+<div class="share">
+
+  <%= link_to image_tag("mail.png", size: "32x32", alt: "share via email"), "#", id: "email_share" %>
+
+  <%= link_to image_tag("twitter.png", size: "32x32", alt: "share on twitter"), "http://twitter.com/home?status=Help me with #{@list.title} #{list_url(@list)} (via Todobadour)"%>
+
+  <%= link_to image_tag("facebook.png", size: "32x32", alt: "share on facebook"), '#', :class => "fb_share"  %>
+
   <%= render "email_form" %>
-
-  <%= link_to "Share on Twitter", "http://twitter.com/home?status=Help me with #{@list.title} #{list_url(@list)} (via Todobadour)"%>
-
-  <%= link_to 'Share on Facebook', '#', :class => "fb_share"  %>
 
 </div>
