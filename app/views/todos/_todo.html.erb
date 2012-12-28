@@ -7,7 +7,6 @@
                                    :collection => ["✓", "☓"],
                                    :path => list_todo_path(@list, todo) %>
   </span>
-  <%= link_to :delete, [@list, todo], :method => :delete,
-                                      :remote => true,
-                                      :title => todo.title %>
+  <%= link_to image_tag("trash_stroke_16x16.png", alt: "delete"),
+              [@list, todo], method: :delete, remote: true, title: todo.title %>
 </li>
