@@ -15,7 +15,7 @@
 
     List.prototype.initSortable = function(){
       that = this;
-      $(that.htmlElementId).sortable({ 
+      $(that.htmlElementId).sortable({
         update: function(event, ui){
           $.ajax({
             type: "PUT",
@@ -46,6 +46,8 @@
     List.prototype.updateTodo = function(data){
       try {
         d = JSON.parse(data);
+        d.done ? doneClass = "done" : doneClass = "not-done";
+        $("#todo-" + d.id).attr("class", doneClass);
         $("#best_in_place_todo_" + d.id + "_title").html(d.title);
         done = $("#best_in_place_todo_" + d.id + "_done");
         tags = done.data('collection');
@@ -66,7 +68,7 @@
     };
 
     List.prototype.subscribe = function(){
-      var that = this; 
+      var that = this;
       this.websocket.subscribe("/" + this.listId + "/add", function(data){
         that.addTodo(data);
       });
