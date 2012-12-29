@@ -4,4 +4,5 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Todobadour::Application.config.secret_token = 'b582713a8a82fb5ca434e92e3415c30a05a26fb2377a5e48404e7b31ad2a98cb29c844494874a256729575ce5f94201ac5718169860c19345349663efeb51a20'
+Todobadour::Application.config.secret_key_base = 'b582713a8a82fb5ca434e92e3415c30a05a26fb2377a5e48404e7b31ad2a98cb29c844494874a256729575ce5f94201ac5718169860c19345349663efeb51a20'
+
