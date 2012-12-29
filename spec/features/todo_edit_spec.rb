@@ -21,7 +21,10 @@ feature "edit todo" do
     expect(page).to have_content("Changed")
   end
 
-  scenario "change title to invalid title"
+  scenario "change title to invalid title", js: true do
+    change_todo_title_for_todo("x"*141, @todo)
+    expect(page).to have_content("Title is too long")
+  end
 
   def toggle_done_for_todo(todo)
     # need to click on this element first to trigger hover
