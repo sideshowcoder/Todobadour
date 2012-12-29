@@ -1,16 +1,16 @@
 module ListsHelper
-  
+
   def last_list
     if cookies["last_list"]
-      begin 
-        list = List.find cookies["last_list"].dup.force_encoding(Encoding::UTF_8)      
+      begin
+        list = List.by_slug(cookies["last_list"].dup.force_encoding(Encoding::UTF_8))
       rescue ActiveRecord::RecordNotFound => e
         list = nil
       end
-    else 
+    else
       list = nil
     end
     list
   end
-        
+
 end
