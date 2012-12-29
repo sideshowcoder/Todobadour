@@ -29,12 +29,7 @@ RSpec.configure do |config|
   # truncation in this case
   config.before(:each) do
     config.use_transactional_fixtures = false
-
-    if Capybara.current_driver == :rack_test
-      DatabaseCleaner.strategy = :transaction
-    else
-      DatabaseCleaner.strategy = :truncation
-    end
+    DatabaseCleaner.strategy = :truncation
     DatabaseCleaner.start
   end
 
