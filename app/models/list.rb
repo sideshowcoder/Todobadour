@@ -17,7 +17,7 @@ class List < ActiveRecord::Base
   end
 
   def self.by_slug(slug)
-    find(:first, conditions: { slug: slug })
+    where(slug: slug).limit(1).first
   end
 
   def share_via_email sender, receiver, message
