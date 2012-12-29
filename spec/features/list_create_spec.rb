@@ -6,7 +6,10 @@ feature "user creates a list" do
     expect(page.find(".content h1")).to have_content("BBQ shopping")
   end
 
-  scenario "with invalid title"
+  scenario "with invalid title", js: true do
+    create_a_list_with_title("x"*141)
+    expect(page).to have_content("Title is too long")
+  end
 
   def create_a_list_with_title(title)
     visit "/"

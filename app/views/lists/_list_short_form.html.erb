@@ -1,6 +1,5 @@
 <div class="list-create-short">
-<%= form_for list do |f| %>
-  <%= render "shared/error_messages", :object => f.object %>
+<%= form_for list, remote: true do |f| %>
   <div>
     <%= f.text_field :title, placeholder: "Enter list name" %>
   </div>
