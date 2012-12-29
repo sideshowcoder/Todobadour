@@ -3,6 +3,7 @@ Todobadour::Application.configure do
 
   # Code is not reloaded between requests
   config.cache_classes = true
+  config.eager_load = true
 
   # Full error reports are disabled and caching is turned on
   config.consider_all_requests_local       = false
@@ -67,10 +68,7 @@ Todobadour::Application.configure do
 
   # Configure Google Analytics
   GA.tracker = "UA-37293522-1"
-
-  # Enable threaded mode
-  # config.threadsafe!
-
+  #
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found)
   config.i18n.fallbacks = true

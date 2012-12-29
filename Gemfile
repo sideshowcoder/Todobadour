@@ -1,13 +1,14 @@
 source "https://rubygems.org"
 
 # Gems required everywhere
-gem "rails", "3.2.8"
+#gem "rails", "3.2.9"
+# Bundle edge Rails instead:
+gem 'rails', git: 'git://github.com/rails/rails.git'
 gem "pg"
 gem "jquery-rails"
-gem "best_in_place"
-gem "friendly_id"
+gem "best_in_place", path: "/Users/phil/Source/best_in_place"
+gem "friendly_id", git: "git://github.com/norman/friendly_id.git", branch: "rails4"
 gem "ranked-model"
-gem "coffee-rails"
 gem "facebook_share"
 gem "google-analytics-rails"
 gem "high_voltage"
@@ -19,15 +20,15 @@ gem "thin"
 
 # Gems used only for assets production assets are precompieled and therefor this is not needed
 group :assets do
-  gem "sass-rails"
-  gem "compass-rails"
+  gem "sass-rails", git: "git://github.com/rails/sass-rails.git"
+  gem "coffee-rails", git: "git://github.com/rails/coffee-rails.git"
   gem "uglifier"
   gem "jquery-ui-rails"
 end
 
 # Gems needed for testing and development
 group :test, :development do
-  gem "therubyracer"
+  #gem "therubyracer"
   gem "pry"
   gem "rspec-rails"
   gem "capybara"
