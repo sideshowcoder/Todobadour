@@ -2,10 +2,8 @@
   <% object.errors.full_messages.each do |msg| %>
     (function($){
       $(function(){
-        $( "<div>" + "<%= msg %>" + "</div>").purr({
-          fadeInSpeed: 200,
-          fadeOutSpeed: 2000,
-        removeTimer: 5000 });
+        $( "<div>" + "<%= msg %>" + "</div>")
+        .purr({ fadeInSpeed: 200, fadeOutSpeed: 2000, removeTimer: 5000 });
       });
     })(jQuery);
   <% end %>
