@@ -11,6 +11,8 @@ feature "user creates a list" do
     expect(page).to have_content("Title is too long")
   end
 
+  scenario "show last visited list"
+
   def create_a_list_with_title(title)
     visit "/"
     fill_in "list_title", with: title
