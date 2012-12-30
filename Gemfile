@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 # Gems required everywhere
-gem "rails", "3.2.8"
+gem "rails", "3.2.9"
 gem "pg"
 gem "jquery-rails"
 gem "best_in_place", "~> 2.0.2"
