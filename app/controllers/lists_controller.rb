@@ -2,7 +2,7 @@ class ListsController < ApplicationController
   respond_to :html, :json, :js
 
   def show
-    @list = List.find params[:id]
+    @list = List.for_slug(params[:id])
     @todo = Todo.new
     # Save list to cookie
     cookies[:last_list] = { :value => @list.slug, :expires => 14.day.from_now }
@@ -22,14 +22,14 @@ class ListsController < ApplicationController
   end
 
   def destroy
-    List.find(params[:id]).destroy
+    List.for_slug(params[:id]).destroy
     # Remove the cookie if the list is destoried!
     cookies.delete :last_list
     redirect_to root_path
   end
 
   def update
-    @list = List.find params[:id]
+    @list = List.for_slug(params[:id])
     list = params[:list]
 
     # Save ranking
@@ -47,14 +47,14 @@ class ListsController < ApplicationController
         format.html { redirect_to @list }
         format.json { respond_with_bip @list }
       else
-        format.html { redirect_to @list, :notice => "update list failed" }
-        format.json { render :json => @list.errors.full_messages, :status => :unprocessable_entity }
+        format.html { redirect_to @list, notice: "update list failed" }
+        format.json { render json: @list.errors.full_messages, status: :unprocessable_entity }
       end
     end
   end
 
   def email
-    @list = List.find params[:id]
+    @list = List.for_slug(params[:id])
 
     receiver = params[:receiver]
     sender = params[:sender]
